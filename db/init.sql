@@ -64,3 +64,15 @@ CREATE TABLE patient_file (
     FOREIGN KEY (patient) REFERENCES users(id) ON DELETE CASCADE,
     description TEXT
 );
+
+-- 8 טבלת חשבוניות
+CREATE TABLE reciepts (
+    FOREIGN KEY (donator) REFERENCES users(id) ON DELETE CASCADE,
+    amount FLOAT NOT NULL
+);
+
+-- 9 ביקורות
+CREATE TABLE reciepts (
+    FOREIGN KEY (reviewer) REFERENCES users(id) ON DELETE CASCADE,
+    review TEXT
+);
