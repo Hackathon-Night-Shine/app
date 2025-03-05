@@ -19,19 +19,19 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-      - name: Build and push backend image
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        run: |
-          docker build -t $DOCKER_USERNAME/back:latest ./back
-          docker push $DOCKER_USERNAME/back:latest
+      # - name: Build and push backend image
+      #   env:
+      #     DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      #   run: |
+      #     docker build -t $DOCKER_USERNAME/back:latest ./back
+      #     docker push $DOCKER_USERNAME/back:latest
 
-      - name: Build and push frontend image
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        run: |
-          docker build -t $DOCKER_USERNAME/front:latest ./front
-          docker push $DOCKER_USERNAME/front:latest
+      # - name: Build and push frontend image
+      #   env:
+      #     DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      #   run: |
+      #     docker build -t $DOCKER_USERNAME/front:latest ./front
+      #     docker push $DOCKER_USERNAME/front:latest
 
   deploy:
     runs-on: ubuntu-latest
