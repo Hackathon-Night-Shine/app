@@ -11,33 +11,34 @@ import './App.css';
 import { Audience } from './components/audience';
 import GoogleLogin from './components/GoogleLogin/GoogleLogin';
 import { HomePage } from './components/home';
+import { AboutUs } from './components/about';
 
 const CLIENT_ID = '1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com';
 
 const App = () => {
-    return (
-        <GoogleOAuthProvider clientId={CLIENT_ID}>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <BrowserRouter>
-                    <Navbar />
-                    <div className='background'>
-                        <Routes>
-                            <Route path='/auth' element={<GoogleLogin />} />
-                            <Route path='/signUp' element={<SignUpPage />} />
-                            <Route path='/manegerHome' element={<Home />} />
-                            <Route path='/home' element={<HomePage />} />
-                            <Route path='/idea' element={<HomePage />} />
-                            <Route path='/audience' element={<Audience />} />
-                            <Route path='/retreat' element={<RetreatManagementPage />} />
-                            <Route path='/about' element={<HomePage />} />
-                            <Route path='/contact' element={<HomePage />} />
-                        </Routes>
-                    </div>
-                </BrowserRouter>
-            </ThemeProvider>
-        </GoogleOAuthProvider>
-    );
+  return (
+    <GoogleOAuthProvider clientId={CLIENT_ID}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <BrowserRouter>
+          <Navbar />
+          <div className='background'>
+            <Routes>
+              <Route path='/auth' element={<GoogleLogin />} />
+              <Route path='/signUp' element={<SignUpPage />} />
+              <Route path='/manegerHome' element={<Home />} />
+              <Route path='/home' element={<HomePage />} />
+              <Route path='/idea' element={<HomePage />} />
+              <Route path='/audience' element={<Audience />} />
+              <Route path='/retreat' element={<RetreatManagementPage />} />
+              <Route path='/about' element={< AboutUs />} />
+              <Route path='/contact' element={<HomePage />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </ThemeProvider>
+    </GoogleOAuthProvider>
+  );
 };
 
 export default App;

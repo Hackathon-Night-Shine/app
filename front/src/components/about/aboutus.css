@@ -1,0 +1,79 @@
+/* סגנון כללי */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f0e8;
+    color: #4A2512;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  /* קונטיינר ראשי */
+  .team-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  
+  /* רשת חברי הצוות */
+  .team-grid2 {
+    display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 עמודות */
+      gap: 50px 100px;
+      text-align: center;
+      justify-content: center;
+      align-items: start; /* מוודא שכולם מתחילים מאותו גובה */
+  }
+  
+  /* עיצוב לכל חבר צוות */
+  .team-member2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* מרכז גם את השם וגם את התיאור */
+  }
+  
+  /* עיצוב תמונות */
+  .team-image2 {
+    flex-wrap: wrap;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #4A2512;
+    filter: grayscale(100%) ;
+    margin-bottom: 5px; /* מבטל רווח גדול מדי מתחת לתמונה */
+  }
+  
+  /* עיצוב שם */
+  .team-name2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #D47935;
+    min-height: auto; /* מבטל קיבוע גובה */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px; /* מצמצם רווח מעל השם */
+  }
+  
+  /* עיצוב תיאור תפקיד */
+  .team-role2 {
+    font-size: 16px;
+    color: #7B5E57;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px; /* מבטל רווח גדול בין שם לתיאור */
+    font-family:"Guttman Kav-Light";
+  }
+  
+  .team-grid {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: start;
+  }
+  
+  
+  

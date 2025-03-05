@@ -1,6 +1,6 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -10,6 +10,7 @@
 
 .brown {
   color:rgb(94, 46, 18);
+
 }
 .logo {
   height: 64px; /* גובה הלוגו */
@@ -20,8 +21,3 @@
   transform: scale(1.1); /* הגדלת הלוגו בעת מעבר עכבר */
 }
 
-.background{
-  background-color: rgb(249, 246, 240);
-  height: 75vh;
-  width: 100%;
-}
