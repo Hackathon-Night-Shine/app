@@ -27,13 +27,6 @@ const Navbar: React.FC = () => {
 						</li>
 					)}
 				</ul>
-				<div style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", marginLeft: "16px" }}>
-					<img
-						src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg"
-						alt="Israel Flag"
-						style={{ width: "20px", height: "20px" }}
-					/>
-				</div>
 			</nav>
 		</div>
 	);
