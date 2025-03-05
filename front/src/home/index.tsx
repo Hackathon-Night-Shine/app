@@ -1,5 +1,8 @@
+import photo1 from '../assets/TZEIRIM_LOGO_1_edited.avif';
+import photo2 from '../assets/thanks.avif';
+
 export const HomePage = () => {
-	return (
+	return (<>
 		<div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center', direction: 'rtl' }}>
 			<img style={{ width: '159px', height: '126px' }}
 				src="https://static.wixstatic.com/media/ded4d3_ea81097b2a1d44b2bc7c1299f0d6acaa~mv2.png/v1/crop/x_0,y_28,w_397,h_278/fill/w_239,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo.png" ></img>
@@ -11,14 +14,33 @@ export const HomePage = () => {
 			</div>
 
 			<div style={{ width: 650 }}>
-				<h1 style={{ fontSize: '48px', }} >על לילה כיום יאיר</h1>
+				<h1 style={{ fontSize: '48px' }} >על לילה כיום יאיר</h1>
 				<span >כשבוע מראשית המלחמה יצרנו מרחב ריפוי שנותן מענה מקיף ומקצועי לעיבוד ושחרור של הארועים, על מנת לייצר 'חיסון' שיקטין את הסיכוי להתפתחות תסמינים של פוסט טראומה, ולהעצים את התקווה והאמונה שאפשר לחיות חיים מלאים אחרי ארוע מסוג זה, ואף לצמוח מתוכו.<br />
 					<span ><a href="https://www.laylakeyomyair.org/about-the-retreat" target="_self" >קראו עוד על הריטריטים שלנו&nbsp;</a></span></span>
+			</div>
 
-				<h1 style={{ fontSize: '48px', }} > הארועים הקרובים שלנו</h1>
-				<span >כשבוע מראשית המלחמה יצרנו מרחב ריפוי שנותן מענה מקיף ומקצועי לעיבוד ושחרור של הארועים, על מנת לייצר 'חיסון' שיקטין את הסיכוי להתפתחות תסמינים של פוסט טראומה, ולהעצים את התקווה והאמונה שאפשר לחיות חיים מלאים אחרי ארוע מסוג זה, ואף לצמוח מתוכו.<br />
-				</span>
+		</div>
+
+		<div style={{ display: 'flex', gap: '30%', justifyContent: 'center', backgroundColor: '#F7DFC7', paddingBlock: '3%', width: '100%', color: 'rgb(94, 46, 18)' }}>
+			<div style={{ width: '55vw' }}>
+				<h1 style={{ fontSize: '60px', marginBlock: 0 }}>כתבו עלינו</h1>
+				<a href="https://www.maariv.co.il/news/israel/Article-1049995" target='_blank'>
+					<img style={{ marginBlock: '10%', height: '228px', borderRadius: '14px' }} src="https://static.wixstatic.com/media/1ed143_5873827faae34fe5a73555203074e0e6~mv2.png/v1/fill/w_900,h_342,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screen%20Shot%202023-11-12%20at%2013_22_18.png" loading="lazy" />
+				</a>
+				<a href="https://www.timesofisrael.com/for-killing-field-party-survivors-meditation-with-horses-offers-new-therapeutic-hope/" target='_blank'>
+					<img src="https://static.wixstatic.com/media/1ed143_b159ef76deeb4077a6991d19d424101d~mv2.png/v1/fill/w_900,h_342,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screen%20Shot%202023-11-09%20at%2020_09_45.png" loading="lazy" style={{ height: '228px', borderRadius: '14px' }} />
+				</a>
 			</div>
 		</div>
+
+		<div style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#F3B073', paddingBlock: '3%', width: '100%', color: 'rgb(94, 46, 18)' }}>
+			<div style={{ width: '35vw' }}>
+				<div style={{ fontSize: '20px', fontWeight: 600 }}>לא יכלנו לעשות את זה בלי השותפים שלנו שהאמינו ברעיון והעמידו לרשותנו מימון באהבה</div>
+				<h1 style={{ fontSize: '60px', marginBlock: 0 }}>תודה</h1>
+				<img src={photo2} />
+				<img src={photo1} />
+			</div>
+		</div>
+	</>
 	)
 }
