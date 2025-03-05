@@ -43,6 +43,17 @@ const RetreatManagementList: React.FC<Props> = ({
               marginLeft: "-24px",
             }}
           />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "rgba(255, 255, 255, 0.7)",
+              zIndex: 1,
+            }}
+          />
         </Grid2>
       )}
       {retreats.map((retreat, index) => (
