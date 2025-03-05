@@ -16,11 +16,11 @@ const GoogleLogin = () => {
 
     const handleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
-            const userInfo = getUserInfo(tokenResponse.access_token);
+            const userInfo = await getUserInfo(tokenResponse.access_token);
 
             // check if user is already exists and update user verify by that
 
-            setUserDetails({ userInfo, isUserVerified: false });
+            setUserDetails({ ...userInfo, isUserVerified: false });
             console.log(userInfo);
         },
         flow: 'implicit',
@@ -29,9 +29,13 @@ const GoogleLogin = () => {
     return (
         <>
             <button onClick={() => handleLogin()}>התחבר/י עם גוגל יגבר</button>
-            {!userDetails?.isUserVerified && (
+            {!!userDetails && !userDetails?.isUserVerified && (
                 <div>
-                    <UserSignUp email={userDetails.email} />
+                    <UserSignUp
+                        email={userDetails.email}
+                        firstName={userDetails.given_name}
+                        lastName={userDetails.family_name}
+                    />
                 </div>
             )}
         </>
