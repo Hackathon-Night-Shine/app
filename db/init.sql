@@ -15,16 +15,20 @@ CREATE TYPE october_7th_experience AS ENUM (
 )
 
 CREATE TYPE status AS ENUM (
-    'pendingForFamilyApproval', 'approved', 'denied', 'inProggress'
+    'pending', 'approved', 'denied'
+)
+
+CREATE TYPE review_future_participation_status AS ENUM (
+    'ofCourse', 'hardToDeside', 'fulfilled'
 )
 
 -- Users table
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
+    email VARCHAR(50) UNIQUE,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     phone_number VARCHAR(20),
-    email VARCHAR(50),
     address TEXT,
     role user_role NOT NULL DEFAULT 'client',
     created_ts TIMESTAMP DEFAULT NOW(),
@@ -55,21 +59,31 @@ CREATE TABLE requests (
 );
 
 CREATE TABLE user_retreat (
+    PRIMARY KEY (user_id, retreat_id),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (retreat_id) REFERENCES retreats(id) ON DELETE CASCADE
 );
-
--- 8 טבלת חשבוניות
--- CREATE TABLE reciepts (
---     FOREIGN KEY (donator) REFERENCES users(id) ON DELETE CASCADE,
---     amount FLOAT NOT NULL
--- );
 
 -- Reviews table
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     post_ts TIMESTAMP,
-    review TEXT
+    mood_before_workshop TINYINT CHECK (mood_before_workshop BETWEEN 1 AND 5),
+    mood_after_workshop TINYINT CHECK (mood_after_workshop BETWEEN 1 AND 5),
+    community_rating TINYINT CHECK (community_rating BETWEEN 1 AND 5),
+    two_key_events TEXT,
+    most_significant_workshop TEXT,
+    least_significant_workshop TEXT,
+    improvment_suggestions TEXT,
+    hakumi_workshop_rating TINYINT CHECK (hakumi_workshop_rating BETWEEN 1 AND 5),
+    hakumi_workshop_guide_rating TINYINT CHECK (hakumi_workshop_guide_rating BETWEEN 1 AND 5),
+    hakumi_workshop_key_points TEXT,
+    emdr_workshop_rating TINYINT CHECK (emdr_workshop_rating BETWEEN 1 AND 5),
+    emdr_workshop_guide_rating TINYINT CHECK (emdr_workshop_guide_rating BETWEEN 1 AND 5),
+    emdr_workshop_key_points TEXT,
+    future_participation review_future_participation_status,
+    suggestion TEXT,
+    notes TEXT,
     FOREIGN KEY (reviewer_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (retreat_id) REFERENCES retreats(id) ON DELETE CASCADE,
 );
