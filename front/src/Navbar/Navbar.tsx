@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
 	const [selectedPage, setSelectedPage] = useState<Page>(pages[pages.length - 1]);
 
 	return (
-		<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', height: '20%', width: '100%' }}>
+		<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', height: '20%', width: '100%', backgroundColor: 'white' }}>
 			<div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: '20px'}}>
 				{pages.map(page =>
                     <Link key={page.path} to={page.path} style={{ textDecoration: "none", color: selectedPage.path === page.path ? "#8B0000" : "inherit" }} onClick={() => setSelectedPage(page)}>

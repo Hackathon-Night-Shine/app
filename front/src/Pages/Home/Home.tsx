@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
-import photo1 from '../../../assets/TZEIRIM_LOGO_1_edited.avif'
-import photo2 from '../../../assets/thanks.avif';
+import photo1 from '../../assets/TZEIRIM_LOGO_1_edited.avif'
+import photo2 from '../../assets/thanks.avif';
 
 const Home: React.FC = () => 
 	<div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}> 
