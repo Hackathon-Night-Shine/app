@@ -8,6 +8,7 @@ import { AboutUs } from "./Pages/AboutUs";
 import Audience from "./Pages/Audience/Audience";
 import Home from "./Pages/Home/Home";
 import Idea from "./Pages/Idea/Idea";
+import ContactForm from './Pages/Contact';
 import { RetreatManagementPage } from "./Pages/Retreats/RetreatManagementPage";
 import { theme } from "./theme";
 
@@ -36,7 +37,7 @@ const App = () => {
                 <Routes>
                   <Route path="/retreats" element={<RetreatManagementPage />} />
                   <Route path="/audience" element={<Audience />} />
-                  <Route path="/contact" element={<Home />} />
+                  <Route path="/contact" element={<ContactForm />} />
                   <Route path="/about-us" element={<AboutUs />} />
                   <Route path="/idea" element={<Idea />} />
                   <Route path="/" element={<Home />} />
