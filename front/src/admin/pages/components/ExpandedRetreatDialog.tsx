@@ -1,6 +1,6 @@
 import { Dialog, DialogContent, Stack, Typography } from "@mui/material";
 import { DialogProps } from "@toolpad/core/useDialogs";
-import { RetreatActionButton } from "../../../Pages/Retreats/RetreatActionButton";
+import { RetreatActionButton } from "../../../Pages/Retreats/components/RetreatActionButton";
 import { generateDateWithDayHebrew } from "../../../utils/dateUtils";
 import { Retreat } from "../../types/retreatTypes";
 
