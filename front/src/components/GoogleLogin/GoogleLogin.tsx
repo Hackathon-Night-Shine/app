@@ -2,8 +2,11 @@ import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { useState } from 'react';
 import UserSignUp from '../UserSignUp/UserSignUp';
+import { useNavigate } from 'react-router-dom';
 
 const GoogleLogin = () => {
+    const navigate = useNavigate();
+
     const [userDetails, setUserDetails] = useState<any | undefined>(undefined);
 
     const getUserInfo = async (access_token: string) => {
@@ -22,6 +25,8 @@ const GoogleLogin = () => {
 
             setUserDetails({ ...userInfo, isUserVerified: false });
             console.log(userInfo);
+
+            navigate('/signUp', { state: userInfo });
         },
         flow: 'implicit',
     });
@@ -29,15 +34,6 @@ const GoogleLogin = () => {
     return (
         <>
             <button onClick={() => handleLogin()}>התחבר/י עם גוגל יגבר</button>
-            {!!userDetails && !userDetails?.isUserVerified && (
-                <div>
-                    <UserSignUp
-                        email={userDetails.email}
-                        firstName={userDetails.given_name}
-                        lastName={userDetails.family_name}
-                    />
-                </div>
-            )}
         </>
     );
 };
