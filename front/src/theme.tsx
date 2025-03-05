@@ -14,7 +14,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Rubik", sans-serif',
+    fontFamily: 'Rubik',
   },
   components: {
     MuiDialog: {

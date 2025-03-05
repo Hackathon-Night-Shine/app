@@ -1,9 +1,5 @@
-<<<<<<<< HEAD:front/src/Pages/Home/Home.tsx
 import { Typography } from '@mui/material';
 import photo1 from '../../assets/TZEIRIM_LOGO_1_edited.avif'
-========
-import photo1 from '../../assets/TZEIRIM_LOGO_1_edited.avif';
->>>>>>>> 5561b1148b1177d363cb12a58eede884c397172b:front/src/components/home/index.tsx
 import photo2 from '../../assets/thanks.avif';
 
 const Home: React.FC = () => 

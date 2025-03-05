@@ -1,18 +1,14 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Navbar from './navbar';
 import { theme } from './theme';
 import footer from './assets/logoUnderPhoto.png';
 
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import Idea from './components/idea/idea';
-import Home from './admin/pages/Home';
-import { RetreatManagementPage } from './admin/pages/RetreatManagementPage';
-import './App.css';
-import { Audience } from './components/audience';
-import GoogleLogin from './components/GoogleLogin/GoogleLogin';
-import { HomePage } from './components/home';
-
+import Audience from './Pages/Audience/Audience';
+import { AboutUs } from './Pages/AboutUs';
+import Idea from './Pages/Idea';
+import Navbar from './Navbar/Navbar';
+import Home from './Pages/Home/Home';
 
 const CLIENT_ID = '1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com';
 
@@ -22,19 +18,19 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <BrowserRouter>
-          <Navbar />
-          <div className='background'>
-            <Routes>
-              <Route path='/auth' element={<GoogleLogin />} />
-              <Route path='/manegerHome' element={<Home />} />
-              <Route path='/home' element={<HomePage />} />
-              <Route path='/idea' element={<Idea />} />
-              <Route path='/audience' element={<Audience />} />
-              <Route path='/retreat' element={<RetreatManagementPage />} />
-              <Route path='/about' element={<HomePage />} />
-              <Route path='/contact' element={<HomePage />} />
-            </Routes>
-            <img src={footer} style={{ width: '100%' }} />
+          <div style={{ width: '100vw', height: '100%', display: 'flex', flexDirection: 'column', backgroundColor: '#f8f6f0', direction: 'rtl' }}>
+            <Navbar />
+            <div style={{ height: '80%' }}>
+              <Routes>
+                <Route path='/audience' element={<Audience />} />
+                <Route path='/contact' element={<Home />} />
+                <Route path='/about-us' element={<AboutUs />} />
+                <Route path='/idea' element={<Idea />} />
+                <Route path='/' element={<Home />} />
+                <Route path='*' element={<Home />} />
+              </Routes>
+              <img src={footer} style={{ width: '100%' }} />
+            </div>
           </div>
         </BrowserRouter>
       </ThemeProvider>
