@@ -1,22 +1,29 @@
-import photo1 from '../assets/TZEIRIM_LOGO_1_edited.avif';
-import photo2 from '../assets/thanks.avif';
+import { Typography } from '@mui/material';
+import photo1 from '../../../assets/TZEIRIM_LOGO_1_edited.avif'
+import photo2 from '../../../assets/thanks.avif';
 
-export const HomePage = () => {
-	return (<>
-		<div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}>
-				<div style={{ width: "100%", height: "546" }}>
+const Home: React.FC = () => 
+	<div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}> 
+		<div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center', position: 'relative' }}> 
 				<img src="https://static.wixstatic.com/media/1ed143_57f11dec29b14e6fbc147fce304e41f3~mv2.jpg/v1/fill/w_1895,h_819,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1ed143_57f11dec29b14e6fbc147fce304e41f3~mv2.jpg"
-					style={{ height: '100%', width: '100%' }}></img>
-				<img style={{ width: '285px', height: '285px', position: 'absolute', top: '70%', left: '50%', zIndex: 2, transform: 'translate(-50%, -50%)' }}
-					src="https://static.wixstatic.com/media/1ed143_e434f89406ee4a5d8f926498b6513148~mv2.png/v1/fill/w_428,h_428,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/%D7%9C%D7%99%D7%9C%D7%94%20%D7%9B%D7%99%D7%95%D7%9D%20%D7%99%D7%90%D7%99%D7%A8_4x.png"></img>
-			</div>
+					style={{ height: 'auto', width: '100%' }}>
+				</img>
+				
+				<img style={{ width: '285px', height: 'auto', position: 'absolute', margin: 'auto', top: '50'}}
+					src="https://static.wixstatic.com/media/1ed143_e434f89406ee4a5d8f926498b6513148~mv2.png/v1/fill/w_428,h_428,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/%D7%9C%D7%99%D7%9C%D7%94%20%D7%9B%D7%99%D7%95%D7%9D%20%D7%99%D7%90%D7%99%D7%A8_4x.png">
+				</img>
+		</div>
+		
+		<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '50%'}}>
+			<h1 style={{ fontSize: '48px', color: '#5e2e12' }} >על לילה כיום יאיר</h1>
 
-			<div style={{ width: 650 }}>
-				<h1 style={{ fontSize: '48px' }} >על לילה כיום יאיר</h1>
-				<span >כשבוע מראשית המלחמה יצרנו מרחב ריפוי שנותן מענה מקיף ומקצועי לעיבוד ושחרור של הארועים, על מנת לייצר 'חיסון' שיקטין את הסיכוי להתפתחות תסמינים של פוסט טראומה, ולהעצים את התקווה והאמונה שאפשר לחיות חיים מלאים אחרי ארוע מסוג זה, ואף לצמוח מתוכו.<br />
-					<span ><a href="https://www.laylakeyomyair.org/about-the-retreat" target="_self" >קראו עוד על הריטריטים שלנו&nbsp;</a></span></span>
-			</div>
-
+			<Typography>
+				כשבוע מראשית המלחמה יצרנו מרחב ריפוי שנותן מענה מקיף ומקצועי לעיבוד ושחרור של הארועים, על מנת לייצר 'חיסון' שיקטין את הסיכוי להתפתחות תסמינים של פוסט טראומה, ולהעצים את התקווה והאמונה שאפשר לחיות חיים מלאים אחרי ארוע מסוג זה, ואף לצמוח מתוכו.
+			</Typography>
+			
+			<Typography>
+				<a href="https://www.laylakeyomyair.org/about-the-retreat" target="_self" >קראו עוד על הריטריטים שלנו&nbsp;</a>
+			</Typography>
 		</div>
 
 		<div style={{ display: 'flex', gap: '30%', justifyContent: 'center', backgroundColor: '#F7DFC7', paddingBlock: '3%', width: '100%', color: 'rgb(94, 46, 18)' }}>
@@ -39,6 +46,6 @@ export const HomePage = () => {
 				<img src={photo1} />
 			</div>
 		</div>
-	</>
-	)
-}
+	</div>
+
+export default Home;	

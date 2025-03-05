@@ -1,7 +1,7 @@
 import { Button, Card } from "@mui/material";
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { RetreatManagementList } from "../../components/retreats/RetreatList";
+import { RetreatManagementList } from "../../components/Retreats/RetreatList";
 import { LocallyCreatedRetreat, Retreat } from "../types/retreatTypes";
 import AddRetreatPopup from "./components/AddRetreatPopUp";
 
