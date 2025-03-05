@@ -45,6 +45,3 @@ volumes:
 networks:
   night_shine_network:
     driver: bridge
-
-include:
-  - ../monitoring/docker-compose.yml
