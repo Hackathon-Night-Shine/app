@@ -55,6 +55,7 @@ jobs:
           SERVER_IP: ${{ secrets.SERVER_IP }}
         run: |
           ssh -tt $SERVER_USER@$SERVER_IP << 'EOF'
+            ls
             cd docker/night-shine
             git pull origin main
             docker-compose pull
