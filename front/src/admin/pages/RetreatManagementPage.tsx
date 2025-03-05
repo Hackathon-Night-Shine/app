@@ -61,7 +61,7 @@ const RetreatManagementPage = () => {
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
-          width: "100%",
+          width: "100vw",
           height: "100%",
         }}
       >
