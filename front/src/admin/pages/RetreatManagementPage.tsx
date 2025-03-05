@@ -2,7 +2,7 @@ import { Button, Card } from "@mui/material";
 import { useDialogs } from "@toolpad/core/useDialogs";
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { RetreatManagementList } from "../../components/retreats/RetreatList";
+import { RetreatManagementList } from "../../Pages/Retreats/RetreatList";
 import { LocallyCreatedRetreat, Retreat } from "../types/retreatTypes";
 import { ManageRetreatDialog } from "./components/ManageRetreatDialog";
 

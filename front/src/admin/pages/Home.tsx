@@ -12,7 +12,6 @@ import {
   TrendingUp as TrendingUpIcon,
   CalendarMonth as CalendarIcon
 } from '@mui/icons-material';
-import { Audience } from '../../audience'
 
 export default function Home() {
   const navigate = useNavigate();
@@ -34,7 +33,7 @@ export default function Home() {
       icon: <CalendarIcon sx={{ fontSize: 40 }} />,
       title: 'Retreats Appointments',
       description: 'Schedule and manage patient appointments',
-      action: () => navigate('/RetreatManagement')
+      action: () => navigate('/retreat')
     }
   ];
 
@@ -87,7 +86,6 @@ export default function Home() {
           </Grid>
         ))}
       </Grid>
-      <Audience></Audience>
     </Box>
   );
 }
