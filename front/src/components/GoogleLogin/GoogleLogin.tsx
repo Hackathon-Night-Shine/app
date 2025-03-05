@@ -1,9 +1,10 @@
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { useState } from 'react';
+import UserSignUp from '../UserSignUp/UserSignUp';
 
 const GoogleLogin = () => {
-    const [isUserVerified, setIsUserVerified] = useState<boolean>(false);
+    const [userDetails, setUserDetails] = useState<any | undefined>(undefined);
 
     const getUserInfo = async (access_token: string) => {
         return await axios
@@ -15,16 +16,26 @@ const GoogleLogin = () => {
 
     const handleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
-            console.log(tokenResponse);
             const userInfo = getUserInfo(tokenResponse.access_token);
+
             // check if user is already exists and update user verify by that
-            setIsUserVerified(false);
+
+            setUserDetails({ userInfo, isUserVerified: false });
             console.log(userInfo);
         },
         flow: 'implicit',
     });
 
-    return <button onClick={() => handleLogin()}>התחבר/י עם גוגל יגבר</button>;
+    return (
+        <>
+            <button onClick={() => handleLogin()}>התחבר/י עם גוגל יגבר</button>
+            {!userDetails?.isUserVerified && (
+                <div>
+                    <UserSignUp email={userDetails.email} />
+                </div>
+            )}
+        </>
+    );
 };
 
 export default GoogleLogin;
