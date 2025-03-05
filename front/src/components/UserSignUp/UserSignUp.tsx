@@ -1,3 +1,4 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import {
     FormControlLabel,
     MenuItem,
@@ -7,16 +8,18 @@ import {
     TextField,
     Typography,
 } from '@mui/material';
-import { useForm, SubmitHandler, FormProvider, Controller } from 'react-hook-form';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import React from 'react';
+import { Controller, FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { UserFormKeys } from './UserFormKeys';
 import {
+    createUserSchema,
     genderRadioRadioLabels,
     getUserDefaultValues,
     octoberLocationSelectLabels,
 } from './UserSignUpUtils';
-import React from 'react';
 
 interface Props {
     email: string;
@@ -28,7 +31,7 @@ const UserSignUp: React.FC<Props> = (props) => {
     const { email, firstName, lastName } = props;
 
     const methods = useForm<any>({
-        //   resolver: yupResolver(schema),
+        resolver: yupResolver(createUserSchema),
         defaultValues: getUserDefaultValues(firstName, lastName, email),
     });
 
@@ -49,82 +52,132 @@ const UserSignUp: React.FC<Props> = (props) => {
                     }}
                 >
                     <Controller
-                        name='firstName'
+                        name={UserFormKeys.FIRST_NAME}
                         render={({ field, fieldState: { error } }) => (
-                            <TextField
-                                {...field}
-                                required
-                                color='primary'
-                                placeholder='שם פרטי'
-                                error={!!error}
-                            />
+                            <>
+                                <TextField
+                                    {...field}
+                                    required
+                                    color={!!error ? 'error' : 'primary'}
+                                    placeholder='שם פרטי'
+                                    error={!!error}
+                                />
+                                {!!error && (
+                                    <Typography style={{ color: 'red' }}>
+                                        {error.message}
+                                    </Typography>
+                                )}
+                            </>
                         )}
                     />
 
                     <Controller
-                        name='lastName'
+                        name={UserFormKeys.LAST_NAME}
                         render={({ field, fieldState: { error } }) => (
-                            <TextField
-                                {...field}
-                                required
-                                color='primary'
-                                placeholder='שם משפחה'
-                                error={!!error}
-                            />
+                            <>
+                                <TextField
+                                    {...field}
+                                    required
+                                    color={!!error ? 'error' : 'primary'}
+                                    placeholder='שם משפחה'
+                                    error={!!error}
+                                />
+                                {!!error && (
+                                    <Typography style={{ color: 'red' }}>
+                                        {error.message}
+                                    </Typography>
+                                )}
+                            </>
                         )}
                     />
 
                     <Controller
-                        name='email'
+                        name={UserFormKeys.EMAIL}
                         render={({ field, fieldState: { error } }) => (
-                            <TextField
-                                {...field}
-                                color='primary'
-                                placeholder='אימייל'
-                                error={!!error}
-                                disabled
-                            />
+                            <>
+                                <TextField
+                                    {...field}
+                                    color={!!error ? 'error' : 'primary'}
+                                    placeholder='אימייל'
+                                    error={!!error}
+                                    disabled
+                                />
+                                {!!error && (
+                                    <Typography style={{ color: 'red' }}>
+                                        {error.message}
+                                    </Typography>
+                                )}
+                            </>
                         )}
                     />
 
                     <Controller
-                        name='birthDate'
+                        name={UserFormKeys.BIRTH_DATE}
                         render={({ field, fieldState: { error } }) => (
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DatePicker {...field} label='תאריך לידה' />
-                                {!!error && <Typography>error</Typography>}
+                                <DatePicker {...field} label='תאריך לידה' format='DD/MM/YYYY' />
+                                {!!error && (
+                                    <Typography style={{ color: 'red' }}>
+                                        {error.message}
+                                    </Typography>
+                                )}
                             </LocalizationProvider>
                         )}
                     />
 
                     <Controller
-                        name='gender'
-                        render={({ field }) => (
-                            <RadioGroup {...field} row>
-                                {genderRadioRadioLabels.map(({ label, value }) => (
-                                    <FormControlLabel
-                                        key={value}
-                                        value={value}
-                                        label={label}
-                                        control={<Radio />}
-                                    />
-                                ))}
-                            </RadioGroup>
+                        name={UserFormKeys.GENDER}
+                        render={({ field, fieldState: { error } }) => (
+                            <>
+                                <RadioGroup {...field} row>
+                                    {genderRadioRadioLabels.map(({ label, value }) => (
+                                        <FormControlLabel
+                                            key={value}
+                                            value={value}
+                                            label={label}
+                                            control={<Radio />}
+                                        />
+                                    ))}
+                                </RadioGroup>
+                                {!!error && (
+                                    <Typography style={{ color: 'red' }}>
+                                        {error.message}
+                                    </Typography>
+                                )}
+                            </>
                         )}
                     />
 
                     <Controller
-                        name='octoberLocation'
-                        render={({ field }) => (
-                            <Select {...field} label='איפה היית ב7 באוקטובר?'>
-                                {octoberLocationSelectLabels.map((octoberLocation) => (
-                                    <MenuItem value={octoberLocation.value}>
-                                        {octoberLocation.label}
-                                    </MenuItem>
-                                ))}
-                            </Select>
+                        name={UserFormKeys.OCTOBER_LOCATION}
+                        render={({ field, fieldState: { error } }) => (
+                            <>
+                                <Select
+                                    {...field}
+                                    displayEmpty
+                                    color={!!error ? 'error' : 'primary'}
+                                    style={{ direction: 'rtl' }}
+                                >
+                                    <option hidden value=''>
+                                        איפה היית ב7 באוקטובר?
+                                    </option>
+                                    {octoberLocationSelectLabels.map((octoberLocation) => (
+                                        <MenuItem
+                                            key={octoberLocation.value}
+                                            value={octoberLocation.value}
+                                        >
+                                            {octoberLocation.label}
+                                        </MenuItem>
+                                    ))}
+                                </Select>
+                                {!!error && (
+                                    <Typography style={{ color: 'red' }}>
+                                        {error.message}
+                                    </Typography>
+                                )}
+                            </>
                         )}
-                    ></Controller>
+                    />
 
                     <button type='submit'>צור משתמש</button>
                 </div>

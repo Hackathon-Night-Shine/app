@@ -10,6 +10,7 @@ import { RetreatManagementPage } from './admin/pages/RetreatManagementPage';
 import { Audience } from './audience';
 import GoogleLogin from './components/GoogleLogin/GoogleLogin';
 import { HomePage } from './home';
+import SignUpPage from './admin/pages/SignUpPage';
 
 const CLIENT_ID = '1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com';
 
@@ -23,6 +24,7 @@ const App = () => {
                     <div className='background'>
                         <Routes>
                             <Route path='/auth' element={<GoogleLogin />} />
+                            <Route path='/signUp' element={<SignUpPage />} />
                             <Route path='/manegerHome' element={<Home />} />
                             <Route path='/home' element={<HomePage />} />
                             <Route path='/idea' element={<HomePage />} />
