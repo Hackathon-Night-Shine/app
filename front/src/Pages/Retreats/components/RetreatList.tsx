@@ -1,6 +1,9 @@
 import { CircularProgress, Grid2 } from "@mui/material";
 import React, { useMemo } from "react";
-import { LocallyCreatedRetreat, Retreat } from "../../admin/types/retreatTypes";
+import {
+  LocallyCreatedRetreat,
+  Retreat,
+} from "../../../admin/types/retreatTypes";
 import { RetreatCard } from "./RetreatCard";
 
 interface Props {
@@ -41,6 +44,17 @@ const RetreatManagementList: React.FC<Props> = ({
               left: "50%",
               marginTop: "-24px",
               marginLeft: "-24px",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "rgba(255, 255, 255, 0.7)",
+              zIndex: 1,
             }}
           />
         </Grid2>
