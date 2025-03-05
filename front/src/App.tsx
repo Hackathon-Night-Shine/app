@@ -6,7 +6,7 @@ import footer from './assets/logoUnderPhoto.png';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Audience from './Pages/Audience/Audience';
 import { AboutUs } from './Pages/AboutUs';
-import Idea from './Pages/Idea';
+import Idea from './Pages/Idea/Idea';
 import Navbar from './Navbar/Navbar';
 import Home from './Pages/Home/Home';
 

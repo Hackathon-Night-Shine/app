@@ -6,7 +6,7 @@ import ideaBackground from '../../assets/ideaBackground.png';
 const Idea: React.FC = () => {
 
     return (
-        <div>
+        <div style={{backgroundColor: '#f9f6f0'}}>
             <div style={{
                 backgroundImage: `url(${ideaBackground})`,
                 backgroundPosition: 'bottom',
