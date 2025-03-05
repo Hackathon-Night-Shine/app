@@ -1,8 +1,7 @@
-// import React from 'react';
-// import { Sun } from 'lucide-react';
-import retreatPhoto from '../assets/retreatPhoto.png';
-import circular_photo from '../assets/הרעיון - עיגול מילים.avif';
-import ideaBackground from '../assets/ideaBackground.png';
+import React from 'react';
+import retreatPhoto from '../../assets/retreatPhoto.png';
+import circular_photo from '../../assets/הרעיון - עיגול מילים.avif';
+import ideaBackground from '../../assets/ideaBackground.png';
 
 const Idea: React.FC = () => {
 
@@ -10,11 +9,9 @@ const Idea: React.FC = () => {
         <div>
             <div style={{
                 backgroundImage: `url(${ideaBackground})`,
-                backgroundPosition:'bottom',
-                backgroundSize : '1300px 650px',
-                minHeight : '600px',
-                // height: '100%',
-                // filter : 'brightness(1.1)',
+                backgroundPosition: 'bottom',
+                backgroundSize: '1300px 650px',
+                minHeight: '600px',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -28,7 +25,7 @@ const Idea: React.FC = () => {
                             height: '70%',
                             zIndex: 1,
                             position: 'relative',
-                            backgroundColor : 'rgba(255,255,255,0.1)'
+                            backgroundColor: 'rgba(255,255,255,0.1)'
                         }}
                         src={circular_photo}
                         alt="Circular photo"
@@ -44,9 +41,9 @@ const Idea: React.FC = () => {
                             textAlign: 'center'
                         }}
                     >
-                        <h1 style={{ color: "orange", fontSize: "20px" }}>לילה כיום יאיר</h1>
-                        <h1 style={{ color: "rgb(var(--color_45))" }}>מרעיון</h1>
-                        <h1 style={{ color: "rgb(var(--color_45))" }}>לביצוע</h1>
+                        <h1 style={{ color: "orange", fontSize: "20px", marginBlock: 0 }}>לילה כיום יאיר</h1>
+                        <h1 style={{ color: "rgb(var(--color_45))", marginBlock: 0 }}>מרעיון</h1>
+                        <h1 style={{ color: "rgb(var(--color_45))", marginBlock: 0 }}>לביצוע</h1>
                     </div>
                 </div>
             </div>
@@ -56,7 +53,8 @@ const Idea: React.FC = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'center'}}>
+                justifyContent: 'center'
+            }}>
                 <div style={{ width: "50%", marginTop: "3em" }}>
                     כשבוע מראשית המלחמה יצרנו מרחב ריפוי שנותן מענה, מקיף ומקצועי לעיבוד ושחרור של הטראומה על מנת לייצר 'חיסון' שיקטין את הסיכוי להתפתחות תסמינים של פוסט טראומה ולהעצים את התקווה והאמונה שאפשר לחיות חיים מלאים ושמחים גם אחרי ארוע מסוג זה, ואף לגדול מתוכה.
                 </div>
@@ -66,13 +64,13 @@ const Idea: React.FC = () => {
                 <div style={{ width: "50%", marginTop: "3em" }}>
                     בתהליך הריפוי אנו משלבים טיפולי גוף נפש, רוח, תודעה, יצירה, מוסיקה, וטבע והם מועברים על ידי מטפלים  קלינים בכירים ומנוסים מתחום הטראומה (כמו האקומי ו- EMDR), לצד מטפלים מנוסים ובכירים בכל שאר התחומים. כל זה נעשה בתוך קהילה, שהיא חלק גדול בריפוי.
                 </div>
-                <div style={{ width: "50%", marginTop: "3em", marginBottom:"3em"}}>
+                <div style={{ width: "50%", marginTop: "3em", marginBottom: "3em" }}>
                     'לילה כיום יאיר' הוא מיזם משותף של: שירה ברוקנר - אשר מגיעה מתחומי הטיפול הקליני, לצד עולמות הגוף, טבע, רוח, תנועה, תודעה. וניצן קרן - שמגיע מעולמות ההפקה האירוח, ועולם הרטריטים.
                 </div>
             </div>
-            
+
             <div>
-                <img src={retreatPhoto} style={{width:"100%"}}/>
+                <img src={retreatPhoto} style={{ width: "100%" }} />
             </div>
 
             <div style={{
@@ -81,14 +79,15 @@ const Idea: React.FC = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                direction: 'rtl'}}>
+                direction: 'rtl'
+            }}>
                 <div style={{ width: "40%", marginTop: "3em" }}>
                     <h1 style={{ color: "orange", fontSize: "20px" }}>לב העשייה</h1>
-                    <h1 style={{ color: "rgb(var(--color_45))" }}>הערכים שלנו</h1> 
+                    <h1 style={{ color: "rgb(var(--color_45))" }}>הערכים שלנו</h1>
                 </div>
-                <div style={{ width: "40%"}}>
+                <div style={{ width: "40%" }}>
                     <h1 style={{ color: "orange", fontSize: "20px" }}>בית</h1>
-                    מחבק, אנושי, משפחה                
+                    מחבק, אנושי, משפחה
                 </div>
                 <div style={{ width: "40%", marginTop: "3em" }}>
                     <h1 style={{ color: "orange", fontSize: "20px" }}>מעגל ריפוי</h1>
@@ -100,17 +99,17 @@ const Idea: React.FC = () => {
                 </div>
                 <div style={{ width: "40%", marginTop: "3em" }}>
                     <h1 style={{ color: "orange", fontSize: "20px" }}>צמיחה</h1>
-                    תקווה לחיים טובים,<br/>
-                    אמונה בצמיחה מתוך אירוע טראומטי,<br/>
-                    רשות וזכות להמשיך בחיים מלאים משמעותיים טובים<br/>
+                    תקווה לחיים טובים,<br />
+                    אמונה בצמיחה מתוך אירוע טראומטי,<br />
+                    רשות וזכות להמשיך בחיים מלאים משמעותיים טובים<br />
                 </div>
                 <div style={{ width: "40%", marginTop: "3em" }}>
                     <h1 style={{ color: "orange", fontSize: "20px" }}>מקצועיות</h1>
                     טובי המומחים בתחום הטראומה, בעלי נסיון עשיר בתחום זה. שיטות שהוכחו מחקרית בטראומה, והכרות מעמיקה עם עולם הפסיכדליה על רבדיו השונים. לצד מומחים בתחומי הריפוי השונים                </div>
-                <div style={{ width: "40%", marginTop: "3em" ,marginBottom :"3em"}}>
+                <div style={{ width: "40%", marginTop: "3em", marginBottom: "3em" }}>
                     <h1 style={{ color: "orange", fontSize: "20px" }}>קהילה</h1>
-                    "אף פעם אתה לא לבד"<br/>
-                    כח היחד, השייכות. חזרה לשבט <br/>               
+                    "אף פעם אתה לא לבד"<br />
+                    כח היחד, השייכות. חזרה לשבט <br />
                 </div>
             </div>
         </div>
