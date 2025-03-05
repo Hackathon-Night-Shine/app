@@ -1,36 +1,41 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Navbar from "./navbar";
-import Layout from './components/Layout'
-import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
-import { theme } from "./theme";
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './navbar';
+import { theme } from './theme';
 
-import { HomePage } from "./home";
-import { RetreatManagementPage } from './admin/pages/RetreatManagementPage'
-import { Audience } from './audience'
-import Home from "./admin/pages/Home";
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import './App.css';
+import Home from './admin/pages/Home';
+import { RetreatManagementPage } from './admin/pages/RetreatManagementPage';
+import { Audience } from './audience';
+import GoogleLogin from './components/GoogleLogin/GoogleLogin';
+import { HomePage } from './home';
+
+const CLIENT_ID = '1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com';
 
 const App = () => {
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <BrowserRouter>
-        <Navbar />
-        <div className="background">
-          <Routes>
-            <Route path="/manegerHome" element={<Home />} />
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/idea" element={<HomePage />} />
-            <Route path="/audience" element={<Audience />} />
-            <Route path="/retreat" element={<RetreatManagementPage />} />
-            <Route path="/about" element={<HomePage />} />
-            <Route path="/contact" element={<HomePage />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </ThemeProvider >
-  );
-}
+    return (
+        <GoogleOAuthProvider clientId={CLIENT_ID}>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <BrowserRouter>
+                    <Navbar />
+                    <div className='background'>
+                        <Routes>
+                            <Route path='/auth' element={<GoogleLogin />} />
+                            <Route path='/manegerHome' element={<Home />} />
+                            <Route path='/home' element={<HomePage />} />
+                            <Route path='/idea' element={<HomePage />} />
+                            <Route path='/audience' element={<Audience />} />
+                            <Route path='/retreat' element={<RetreatManagementPage />} />
+                            <Route path='/about' element={<HomePage />} />
+                            <Route path='/contact' element={<HomePage />} />
+                        </Routes>
+                    </div>
+                </BrowserRouter>
+            </ThemeProvider>
+        </GoogleOAuthProvider>
+    );
+};
 
-
-export default App
+export default App;
