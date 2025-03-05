@@ -1,0 +1,26 @@
+# Use an official Node.js runtime as a parent image
+FROM node:18-alpine
+
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package.json ./
+
+# Install dependencies
+RUN npm install --frozen-lockfile
+
+# Copy the rest of the application files
+COPY . .
+
+# Set environment variables (optional)
+ENV NODE_ENV=production
+
+# Compile TypeScript to JavaScript
+RUN npm run build
+
+# Expose the application port (adjust if needed)
+EXPOSE 3000
+
+# Run the application
+CMD ["node", "dist/index.js"]

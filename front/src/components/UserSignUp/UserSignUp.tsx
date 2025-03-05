@@ -11,7 +11,6 @@ import {
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import React from 'react';
 import { Controller, FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { UserFormKeys } from './UserFormKeys';
 import {
@@ -27,7 +26,7 @@ interface Props {
     lastName: string;
 }
 
-const UserSignUp: React.FC<Props> = (props) => {
+const UserSignUp = (props: Props) => {
     const { email, firstName, lastName } = props;
 
     const methods = useForm<any>({

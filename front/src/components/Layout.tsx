@@ -1,22 +1,18 @@
-import React from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
   Typography,
   Container,
   Box,
-  Button,
   IconButton
 } from '@mui/material';
 import {
   Home as HomeIcon,
-  Group as GroupIcon
 } from '@mui/icons-material';
 
 export default function Layout() {
   const navigate = useNavigate();
-  const location = useLocation();
 
   return (
     <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>

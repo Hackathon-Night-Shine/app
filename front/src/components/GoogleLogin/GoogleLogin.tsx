@@ -1,13 +1,12 @@
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { useState } from 'react';
-import UserSignUp from '../UserSignUp/UserSignUp';
 import { useNavigate } from 'react-router-dom';
 
 const GoogleLogin = () => {
     const navigate = useNavigate();
 
-    const [userDetails, setUserDetails] = useState<any | undefined>(undefined);
+    const [_userDetails, setUserDetails] = useState<any | undefined>(undefined);
 
     const getUserInfo = async (access_token: string) => {
         return await axios

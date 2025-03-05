@@ -1,4 +1,3 @@
-import React from 'react';
 import retreatPhoto from '../../assets/retreatPhoto.png';
 import circular_photo from '../../assets/הרעיון - עיגול מילים.avif';
 import ideaBackground from '../../assets/ideaBackground.png';
