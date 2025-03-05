@@ -117,27 +117,5 @@ export const theme = createTheme({
         },
       },
     },
-    // Add styles for date picker components
-    // MuiPickersPopper: {
-    //   styleOverrides: {
-    //     root: {
-    //       direction: "rtl",
-    //     },
-    //   },
-    // },
-    // MuiPickersLayout: {
-    //   styleOverrides: {
-    //     root: {
-    //       direction: "rtl",
-    //     },
-    //   },
-    // },
-    // MuiDateRangePickerDay: {
-    //   styleOverrides: {
-    //     root: {
-    //       direction: "rtl",
-    //     },
-    //   },
-    // },
   },
 });
