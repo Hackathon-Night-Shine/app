@@ -15,7 +15,7 @@ const App = () => {
             <ThemeProvider theme={theme}>
                 <CssBaseline />
                     <BrowserRouter>
-                        <div style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#f8f6f0'}}>
+                        <div style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#f8f6f0', direction: 'rtl'}}>
                             <Navbar />
                             <div style={{ height: '80%'}}>
                                 <Routes>
