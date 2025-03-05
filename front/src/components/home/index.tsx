@@ -1,5 +1,5 @@
-import photo1 from '../assets/TZEIRIM_LOGO_1_edited.avif';
-import photo2 from '../assets/thanks.avif';
+import photo1 from '../../assets/TZEIRIM_LOGO_1_edited.avif';
+import photo2 from '../../assets/thanks.avif';
 
 export const HomePage = () => {
 	return (<>

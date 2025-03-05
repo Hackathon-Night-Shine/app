@@ -1,12 +1,12 @@
 import React from 'react';
-import '../App.css';
+import '../../App.css';
 
 export const Audience = () => {
     return (
         <div className="brown" style={{ display: 'flex', width: '100vw', justifyContent: 'center' }}>
             <div style={{ width: '50vw' }}>
-                <h2 className="orange" style={{ margin: 0 }}>למי אנחנו פונים</h2>
-                <h1 className='brown' style={{ margin: 0 }}> קהל היעד</h1>
+                <h2 className="orange" style={{margin: 0, marginTop: '10%' }}>למי אנחנו פונים</h2>
+                <h1 className='brown' style={{ margin: 0, marginBottom: '5%' }}> קהל היעד</h1>
                 <p>
                     קהל היעד של המיזם הוא יוצאי המסיבה, שעברו לאור העובדה שמדובר באנשים שאינם חלק מהקהילה (כמו יישוב או יחידה צבאית), והתפזרו באותו מקור למקומות שונים. מתוך כך, הם פגיעים יותר להתפתחות של הסמנים (בדומה ליכולות החברים בצבא, שעם הם מהווים קבוצת סיכון גבוהה יותר).
                 </p>
