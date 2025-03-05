@@ -1,78 +1,75 @@
 CREATE SCHEMA IF NOT EXISTS "prod";
 CREATE SCHEMA IF NOT EXISTS "pre-prod";
 
--- 1 יצירת טבלת סוגי משתמשים
-CREATE TABLE user_typesypes (
-    id SERIAL PRIMARY KEY,
-    type_name VARCHAR(20) UNIQUE NOT NULL
-);
+-- Custom types
+CREATE TYPE user_role AS ENUM (
+    'client', 'admin'
+)
 
-INSERT INTO user_types (type_name) VALUES
-('client'),
-('admin');
+CREATE TYPE gender AS ENUM (
+    'male', 'female', 'other'
+)
 
--- 2 יצירת טבלת משתמשים
+CREATE TYPE october_7th_experience AS ENUM (
+    'festival', 'gazaEnvelopeSettlements', 'defenceForces', 'medicalStaff', 'other'
+)
+
+CREATE TYPE status AS ENUM (
+    'pendingForFamilyApproval', 'approved', 'denied', 'inProggress'
+)
+
+-- Users table
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     phone_number VARCHAR(20),
+    email VARCHAR(50),
     address TEXT,
-    user_type INT NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW(),
-    did_fill_details BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (user_type) REFERENCES user_types(id) ON DELETE CASCADE,
+    role user_role NOT NULL DEFAULT 'client',
+    created_ts TIMESTAMP DEFAULT NOW(),
+    birth_date TIMESTAMP,
+    gender gender,
+    october_7th_experience october_7th_experience,
+    img BYTEA,
 );
 
--- 3 יצירת טבלת מתנדבים (כולל מיומנויות ועיר מועדפת)
+-- Retreats table
 CREATE TABLE retreats (
     id SERIAL PRIMARY KEY,
-    address TEXT NOT NULL,
+    name VARCHAR(20), -- TODO: Ask front what should be the max length
     description TEXT,
-    phone_number VARCHAR(20) NOT NULL,
+    address TEXT,
+    phone_number VARCHAR(20),
+    img BYTEA,
+    capacity SMALLINT
 );
 
--- 4 יצירת טבלת סטטוסי בקשות
-CREATE TABLE request_status (
-    id SERIAL PRIMARY KEY,
-    status_name VARCHAR(50) UNIQUE NOT NULL
-);
-
-INSERT INTO request_status (status_name) VALUES
-('ממתין לאישור המשפחה'),
-('בטיפול'),
-('אושר'),
-('נדחה');
-
--- 5 יצירת טבלת בקשות
+-- Requests table
 CREATE TABLE requests (
     id SERIAL PRIMARY KEY,
-    FOREIGN KEY (client) REFERENCES users(id) ON DELETE CASCADE,
-    description TEXT NULL,
-    created_at TIMESTAMP DEFAULT NOW(),
-    FOREIGN KEY (status) REFERENCES request_status(id) ON DELETE CASCADE
+    FOREIGN KEY (client_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (retreat_id) REFERENCES retreats(id) ON DELETE CASCADE,
+    created_ts TIMESTAMP DEFAULT NOW(),
+    status status
 );
 
--- 6 טבלת תיאור ריטריט
-CREATE TABLE retreat_to_description (
-    FOREIGN KEY (retreat) REFERENCES retreats(id) ON DELETE CASCADE,
-    description TEXT
-);
-
--- 7 טבלת תיאור תיק מטופל
-CREATE TABLE patient_file (
-    FOREIGN KEY (patient) REFERENCES users(id) ON DELETE CASCADE,
-    description TEXT
+CREATE TABLE user_retreat (
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (retreat_id) REFERENCES retreats(id) ON DELETE CASCADE
 );
 
 -- 8 טבלת חשבוניות
-CREATE TABLE reciepts (
-    FOREIGN KEY (donator) REFERENCES users(id) ON DELETE CASCADE,
-    amount FLOAT NOT NULL
-);
+-- CREATE TABLE reciepts (
+--     FOREIGN KEY (donator) REFERENCES users(id) ON DELETE CASCADE,
+--     amount FLOAT NOT NULL
+-- );
 
--- 9 ביקורות
-CREATE TABLE reciepts (
-    FOREIGN KEY (reviewer) REFERENCES users(id) ON DELETE CASCADE,
+-- Reviews table
+CREATE TABLE reviews (
+    id SERIAL PRIMARY KEY,
+    post_ts TIMESTAMP,
     review TEXT
+    FOREIGN KEY (reviewer_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (retreat_id) REFERENCES retreats(id) ON DELETE CASCADE,
 );
