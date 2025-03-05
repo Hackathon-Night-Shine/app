@@ -4,9 +4,7 @@ import photo2 from '../assets/thanks.avif';
 export const HomePage = () => {
 	return (<>
 		<div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center', direction: 'rtl' }}>
-			<img style={{ width: '159px', height: '126px' }}
-				src="https://static.wixstatic.com/media/ded4d3_ea81097b2a1d44b2bc7c1299f0d6acaa~mv2.png/v1/crop/x_0,y_28,w_397,h_278/fill/w_239,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo.png" ></img>
-			<div style={{ width: "100%", height: "546" }}>
+				<div style={{ width: "100%", height: "546" }}>
 				<img src="https://static.wixstatic.com/media/1ed143_57f11dec29b14e6fbc147fce304e41f3~mv2.jpg/v1/fill/w_1895,h_819,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1ed143_57f11dec29b14e6fbc147fce304e41f3~mv2.jpg"
 					style={{ height: '100%', width: '100%' }}></img>
 				<img style={{ width: '285px', height: '285px', position: 'absolute', top: '70%', left: '50%', zIndex: 2, transform: 'translate(-50%, -50%)' }}
