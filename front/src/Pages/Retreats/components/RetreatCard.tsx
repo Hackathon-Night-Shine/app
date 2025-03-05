@@ -10,10 +10,10 @@ import {
   Typography,
 } from "@mui/material";
 import { useDialogs } from "@toolpad/core";
-import { ExpandedRetreatDialog } from "../../admin/pages/components/ExpandedRetreatDialog";
-import { ManageRetreatDialog } from "../../admin/pages/components/ManageRetreatDialog";
-import { Retreat } from "../../admin/types/retreatTypes";
-import { generateDateWithDayHebrew } from "../../utils/dateUtils";
+import { ExpandedRetreatDialog } from "../../../admin/pages/components/ExpandedRetreatDialog";
+import { ManageRetreatDialog } from "../../../admin/pages/components/ManageRetreatDialog";
+import { Retreat } from "../../../admin/types/retreatTypes";
+import { generateDateWithDayHebrew } from "../../../utils/dateUtils";
 import { RetreatActionButton } from "./RetreatActionButton";
 
 interface Props {

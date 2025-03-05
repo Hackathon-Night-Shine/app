@@ -1,6 +1,6 @@
 import { Button, ButtonProps } from "@mui/material";
 import React, { memo } from "react";
-import { RetreatStatus } from "../../admin/types/retreatTypes";
+import { RetreatStatus } from "../../../admin/types/retreatTypes";
 
 interface Props {
   status: RetreatStatus;

@@ -1,6 +1,9 @@
 import { CircularProgress, Grid2 } from "@mui/material";
 import React, { useMemo } from "react";
-import { LocallyCreatedRetreat, Retreat } from "../../admin/types/retreatTypes";
+import {
+  LocallyCreatedRetreat,
+  Retreat,
+} from "../../../admin/types/retreatTypes";
 import { RetreatCard } from "./RetreatCard";
 
 interface Props {
