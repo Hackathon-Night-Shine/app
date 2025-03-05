@@ -1,16 +1,15 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import footer from "./assets/logoUnderPhoto.png";
-import { theme } from "./theme";
-
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { DialogsProvider } from "@toolpad/core/useDialogs";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { RetreatManagementPage } from "./admin/pages/RetreatManagementPage";
+import footer from "./assets/logoUnderPhoto.png";
 import Navbar from "./Navbar/Navbar";
 import { AboutUs } from "./Pages/AboutUs";
 import Audience from "./Pages/Audience/Audience";
 import Home from "./Pages/Home/Home";
-import Idea from "./Pages/Idea";
-import { RetreatManagementPage } from "./admin/pages/RetreatManagementPage";
+import Idea from "./Pages/Idea/Idea";
+import { theme } from "./theme";
 
 const CLIENT_ID =
   "1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com";
