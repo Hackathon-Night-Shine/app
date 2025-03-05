@@ -3,7 +3,7 @@ import '../App.css';
 
 export const Audience = () => {
     return (
-        <div className="brown" style={{ display: 'flex', width: '100vw', justifyContent: 'center', direction: 'rtl' }}>
+        <div className="brown" style={{ display: 'flex', width: '100vw', justifyContent: 'center' }}>
             <div style={{ width: '50vw' }}>
                 <h2 className="orange" style={{ margin: 0 }}>למי אנחנו פונים</h2>
                 <h1 className='brown' style={{ margin: 0 }}> קהל היעד</h1>

@@ -3,7 +3,7 @@ import photo2 from '../assets/thanks.avif';
 
 export const HomePage = () => {
 	return (<>
-		<div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center', direction: 'rtl' }}>
+		<div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}>
 				<div style={{ width: "100%", height: "546" }}>
 				<img src="https://static.wixstatic.com/media/1ed143_57f11dec29b14e6fbc147fce304e41f3~mv2.jpg/v1/fill/w_1895,h_819,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1ed143_57f11dec29b14e6fbc147fce304e41f3~mv2.jpg"
 					style={{ height: '100%', width: '100%' }}></img>
