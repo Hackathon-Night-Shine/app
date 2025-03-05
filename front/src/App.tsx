@@ -17,13 +17,15 @@ const App = () => {
                     <BrowserRouter>
                         <div style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#f8f6f0'}}>
                             <Navbar />
-                            <Routes>
-                                <Route path='/audience' element={<Audience />} />
-                                <Route path='/contact' element={<Home />} />
-                                <Route path='/' element={<Home />}/>
-                                <Route path='*' element={<Home />}/>
-                            </Routes>
+                            <div style={{ height: '80%'}}>
+                                <Routes>
+                                    <Route path='/audience' element={<Audience/>} />
+                                    <Route path='/contact' element={<Home />} />
+                                    <Route path='/' element={<Home />}/>
+                                    <Route path='*' element={<Home />}/>
+                                </Routes>
                             </div>
+                        </div>
                 </BrowserRouter>
             </ThemeProvider>
         </GoogleOAuthProvider>
