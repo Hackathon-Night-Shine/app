@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Runs when code is pushed to 'main'
+      - cicd-pipeline  # Runs when code is pushed to 'main'
 
 jobs:
   build:
@@ -39,8 +39,9 @@ jobs:
       - name: Deploy with Docker Compose
         run: |
           ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
-            cd /path/to/app
-            git pull origin main
-            docker-compose pull
-            docker-compose up -d --build
+            # cd /path/to/app
+            # git pull origin main
+            # docker-compose pull
+            # docker-compose up -d --build
+            cat "einav" > ~./einav.txt
           EOF
