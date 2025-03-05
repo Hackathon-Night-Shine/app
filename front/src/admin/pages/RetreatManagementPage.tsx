@@ -1,14 +1,16 @@
 import { Button, Card } from "@mui/material";
+import { useDialogs } from "@toolpad/core/useDialogs";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { RetreatManagementList } from "../../components/retreats/RetreatList";
 import { LocallyCreatedRetreat, Retreat } from "../types/retreatTypes";
-import AddRetreatPopup from "./components/AddRetreatPopUp";
+import { ManageRetreatDialog } from "./components/ManageRetreatDialog";
 
 const retreats: Retreat[] = [
   {
     id: 1,
-    imageSrc: "https://example.com/image1.jpg",
+    imageSrc:
+      "https://rukminim3.flixcart.com/image/850/1000/kpcy5jk0/poster/h/c/w/large-village-poster-scenery-scenrym-68-original-imag3m8vrkdztzva.jpeg?q=20&crop=false",
     name: "Mountain Retreat",
     description: "A peaceful retreat in the mountains.",
     destination: "Mountain",
@@ -20,7 +22,8 @@ const retreats: Retreat[] = [
   },
   {
     id: 2,
-    imageSrc: "https://example.com/image2.jpg",
+    imageSrc:
+      "https://rukminim3.flixcart.com/image/850/1000/kpcy5jk0/poster/h/c/w/large-village-poster-scenery-scenrym-68-original-imag3m8vrkdztzva.jpeg?q=20&crop=false",
     name: "Beach Retreat",
     description: "A relaxing retreat by the beach.",
     destination: "Mountain",
@@ -33,10 +36,27 @@ const retreats: Retreat[] = [
 ];
 
 const RetreatManagementPage = () => {
+  const dialogs = useDialogs();
   const [retreatsArr, setRetreatsArr] = useState(retreats);
   const [locallyCreatedRetreat, setLocallyCreatedRetreat] =
     useState<LocallyCreatedRetreat>();
-  const [isAddRetreatPopupOpen, setIsAddRetreatPopupOpen] = useState(false);
+
+  const handleCreateRetreatClick = async () => {
+    const retreatToCreate = await dialogs.open(ManageRetreatDialog, {
+      name: "",
+      description: "",
+      destination: "",
+      imageSrc: "",
+      startDate: moment(),
+      endDate: moment(),
+      maximumParticipantsAmount: 0,
+      status: "open",
+    });
+
+    if (retreatToCreate) {
+      setLocallyCreatedRetreat(retreatToCreate);
+    }
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -60,18 +80,9 @@ const RetreatManagementPage = () => {
 
   return (
     <Card style={{ display: "flex", flexDirection: "column" }}>
-      <Button
-        variant="contained"
-        onClick={() => setIsAddRetreatPopupOpen(true)}
-      >
+      <Button variant="contained" onClick={handleCreateRetreatClick}>
         הוסף ריטריט
       </Button>
-      {isAddRetreatPopupOpen && (
-        <AddRetreatPopup
-          onClose={() => setIsAddRetreatPopupOpen(false)}
-          setLocalRetreat={setLocallyCreatedRetreat}
-        />
-      )}
       <RetreatManagementList
         retreats={retreatsArr}
         pendingRetreat={locallyCreatedRetreat}
