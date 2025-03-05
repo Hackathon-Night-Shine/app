@@ -5,13 +5,15 @@ type Retreat = {
     name: string;
     description: string;
     imageSrc: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: moment.Moment;
+    endDate: moment.Moment;
     destination: string;
     maximumParticipantsAmount: number;
     avilableParticipantsAmount: number;
     status: RetreatStatus;
 };
 
-export type { Retreat, RetreatStatus };
+type LocallyCreatedRetreat = Omit<Retreat, 'id' | 'avilableParticipantsAmount'>;
+
+export type { LocallyCreatedRetreat, Retreat, RetreatStatus };
 

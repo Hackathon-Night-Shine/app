@@ -13,6 +13,9 @@ export const theme = createTheme({
       paper: "#ffffff",
     },
   },
+  typography: {
+    fontFamily: '"Rubik", sans-serif',
+  },
   components: {
     MuiDialog: {
       styleOverrides: {

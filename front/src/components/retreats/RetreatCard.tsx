@@ -9,7 +9,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { Retreat } from "../../types/retreatTypes";
+import { Retreat } from "../../admin/types/retreatTypes";
 import { RetreatActionButton } from "./RetreatActionButton";
 
 interface Props {
@@ -83,7 +83,7 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
             התחלה
           </Typography>
           <Typography variant="caption">
-            {generateDateWithDayHebrew(retreat.startDate)}
+            {generateDateWithDayHebrew(retreat.startDate.toDate())}
           </Typography>
         </Stack>
         <Stack
@@ -95,7 +95,7 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
             סיום
           </Typography>
           <Typography variant="caption">
-            {generateDateWithDayHebrew(retreat.endDate)}
+            {generateDateWithDayHebrew(retreat.endDate.toDate())}
           </Typography>
         </Stack>
         <Typography
