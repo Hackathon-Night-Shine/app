@@ -10,6 +10,7 @@ import { AboutUs } from "./Pages/AboutUs";
 import Audience from "./Pages/Audience/Audience";
 import Home from "./Pages/Home/Home";
 import Idea from "./Pages/Idea";
+import { RetreatManagementPage } from "./admin/pages/RetreatManagementPage";
 
 const CLIENT_ID =
   "1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com";
@@ -34,6 +35,7 @@ const App = () => {
               <Navbar />
               <div style={{ height: "80%" }}>
                 <Routes>
+                  <Route path="/retreats" element={<RetreatManagementPage />} />
                   <Route path="/audience" element={<Audience />} />
                   <Route path="/contact" element={<Home />} />
                   <Route path="/about-us" element={<AboutUs />} />

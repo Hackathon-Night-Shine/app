@@ -21,7 +21,7 @@ interface Props {
   editable?: boolean;
 }
 
-const EXCLUDED_EXPANSIONS_CLASSES = "MuiCardActions-root";
+const EXCLUDED_EXPANSIONS_CLASSES = ".MuiButtonBase-root";
 
 const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
   const dialogs = useDialogs();
@@ -130,4 +130,4 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
   );
 };
 
-export { RetreatCard };
+export { EXCLUDED_EXPANSIONS_CLASSES, RetreatCard };

@@ -40,7 +40,7 @@ const RetreatManagementPage = () => {
   const [retreatsArr, setRetreatsArr] = useState(retreats);
   const [locallyCreatedRetreat, setLocallyCreatedRetreat] =
     useState<LocallyCreatedRetreat>();
-  const isAdmin = true;
+  const isAdmin = false;
 
   const handleCreateRetreatClick = async () => {
     const retreatToCreate = await dialogs.open(ManageRetreatDialog, {
