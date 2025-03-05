@@ -16,7 +16,7 @@ export const pages: Page[] = [
 ]
 
 const Navbar: React.FC = () => {
-	const [selectedPage, setSelectedPage] = useState<Page>(pages[pages.length - 1]);
+	const [selectedPage, setSelectedPage] = useState<Page>(pages[0]);
 
 	return (
 		<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', height: '20%', width: '100%', backgroundColor: 'white' }}>
