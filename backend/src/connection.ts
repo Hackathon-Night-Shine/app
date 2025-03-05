@@ -6,6 +6,9 @@ import { Request } from "./entities/Request";
 import { Retreat } from "./entities/Retreat";
 import { Review } from "./entities/Review";
 import { UserRetreat } from "./entities/UserRetreat";
+import { Receipt } from "./entities/Receipt";
+import { Supplier } from "./entities/Supplier";
+import { SupplierReceipt } from "./entities/SupplierReceipt";
 import { createDatabase } from "typeorm-extension";
 
 config();
@@ -20,7 +23,7 @@ export const dataSource = new DataSource({
     synchronize: true,
     logging: true,
     schema: 'public',
-    entities: [User, Request, Retreat, Review, UserRetreat]
+    entities: [User, Request, Retreat, Review, UserRetreat, Supplier, Receipt, SupplierReceipt]
 });
 
 const initializeDataSource = async () => {
