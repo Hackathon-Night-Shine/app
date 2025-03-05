@@ -1,13 +1,14 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { GoogleOAuthProvider } from '@react-oauth/google';
-
-import Navbar from './Navbar/Navbar';
 import { theme } from './theme';
-import Home from './Pages/Home/Home';
+import footer from './assets/logoUnderPhoto.png';
+
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import Audience from './Pages/Audience/Audience';
 import { AboutUs } from './Pages/AboutUs';
 import Idea from './Pages/Idea';
+import Navbar from './Navbar/Navbar';
+import Home from './Pages/Home/Home';
 
 const CLIENT_ID = '1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com';
 
@@ -28,6 +29,7 @@ const App = () => {
                 <Route path='/' element={<Home />} />
                 <Route path='*' element={<Home />} />
               </Routes>
+              <img src={footer} style={{ width: '100%' }} />
             </div>
           </div>
         </BrowserRouter>
