@@ -43,14 +43,14 @@ const RetreatManagementPage = () => {
       setRetreatsArr((prevState) =>
         locallyCreatedRetreat
           ? [
-              ...prevState,
-              {
-                ...locallyCreatedRetreat,
-                avilableParticipantsAmount:
-                  locallyCreatedRetreat.maximumParticipantsAmount,
-                id: prevState.length + 1,
-              },
-            ]
+            ...prevState,
+            {
+              ...locallyCreatedRetreat,
+              avilableParticipantsAmount:
+                locallyCreatedRetreat.maximumParticipantsAmount,
+              id: prevState.length + 1,
+            },
+          ]
           : prevState
       );
 
@@ -59,7 +59,7 @@ const RetreatManagementPage = () => {
   }, [locallyCreatedRetreat]);
 
   return (
-    <Card style={{ display: "flex", flexDirection: "column" }}>
+    <Card style={{ display: "flex", flexDirection: "column", width: '100vw' }}>
       <Button
         variant="contained"
         onClick={() => setIsAddRetreatPopupOpen(true)}
