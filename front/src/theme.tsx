@@ -24,7 +24,6 @@ export const theme = createTheme({
           maxWidth: "fit-content",
           borderRadius: 16,
           padding: "16px",
-          background: "linear-gradient(135deg, #fff3e0 0%, #fff8e1 100%)",
           boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
           "&::before": {
             content: '""',

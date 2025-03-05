@@ -40,6 +40,7 @@ const RetreatManagementPage = () => {
   const [retreatsArr, setRetreatsArr] = useState(retreats);
   const [locallyCreatedRetreat, setLocallyCreatedRetreat] =
     useState<LocallyCreatedRetreat>();
+  const isAdmin = true;
 
   const handleCreateRetreatClick = async () => {
     const retreatToCreate = await dialogs.open(ManageRetreatDialog, {
@@ -80,13 +81,15 @@ const RetreatManagementPage = () => {
 
   return (
     <Card style={{ display: "flex", flexDirection: "column" }}>
-      <Button variant="contained" onClick={handleCreateRetreatClick}>
-        הוסף ריטריט
-      </Button>
+      {isAdmin && (
+        <Button variant="contained" onClick={handleCreateRetreatClick}>
+          הוסף ריטריט
+        </Button>
+      )}
       <RetreatManagementList
         retreats={retreatsArr}
         pendingRetreat={locallyCreatedRetreat}
-        editable
+        editable={isAdmin}
       />
     </Card>
   );
