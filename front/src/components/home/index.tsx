@@ -14,7 +14,7 @@ export const HomePage = () => {
 			<div style={{ width: 650 }}>
 				<h1 style={{ fontSize: '48px' }} >על לילה כיום יאיר</h1>
 				<span >כשבוע מראשית המלחמה יצרנו מרחב ריפוי שנותן מענה מקיף ומקצועי לעיבוד ושחרור של הארועים, על מנת לייצר 'חיסון' שיקטין את הסיכוי להתפתחות תסמינים של פוסט טראומה, ולהעצים את התקווה והאמונה שאפשר לחיות חיים מלאים אחרי ארוע מסוג זה, ואף לצמוח מתוכו.<br />
-					<span ><a href="https://www.laylakeyomyair.org/about-the-retreat" target="_self" >קראו עוד על הריטריטים שלנו&nbsp;</a></span></span>
+					<span ><a href="/retreat" target="_self" >קראו עוד על הריטריטים שלנו&nbsp;</a></span></span>
 			</div>
 
 		</div>
