@@ -8,48 +8,54 @@ import {
   TextField,
   ThemeProvider,
 } from "@mui/material";
-import { useState } from "react";
-import { Retreat } from "./RetreatManagementPage";
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
-import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import { DateRangePicker } from "@mui/x-date-pickers-pro";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import moment from "moment";
-import { theme } from "../../theme";
+import { useState } from "react";
+import { theme } from "../../../theme";
+import { LocallyCreatedRetreat } from "../../types/retreatTypes";
 
 interface AddRetreatPopupProps {
   onClose: () => void;
-  setRetreats: React.Dispatch<React.SetStateAction<Retreat[]>>;
+  setLocalRetreat: React.Dispatch<
+    React.SetStateAction<LocallyCreatedRetreat | undefined>
+  >;
 }
 
 const AddRetreatPopup: React.FC<AddRetreatPopupProps> = ({
   onClose,
-  setRetreats,
+  setLocalRetreat,
 }) => {
   //Todo: date type instead of current date as default
-  const [newRetreat, setNewRetreat] = useState<Retreat>({
+  const [newRetreat, setNewRetreat] = useState<LocallyCreatedRetreat>({
     name: "",
     description: "",
     destination: "",
     imageSrc: "",
-    createDate: new Date(),
-    startDate: null as moment.Moment | null,
-    endDate: null as moment.Moment | null,
-    numOfParticipants: 0,
+    startDate: moment(),
+    endDate: moment(),
+    maximumParticipantsAmount: 0,
+    status: "open",
   });
 
   const handleDateRangeChange = (
     newRange: [moment.Moment | null, moment.Moment | null]
   ) => {
-    setNewRetreat((prevState) => ({
-      ...prevState,
-      startDate: newRange[0],
-      endDate: newRange[1],
-    }));
+    setNewRetreat((prevState) =>
+      prevState
+        ? {
+            ...prevState,
+            startDate: newRange[0] ?? moment(),
+            endDate: newRange[1] ?? moment(),
+          }
+        : prevState
+    );
   };
 
   const addRetreat = () => {
-    setRetreats((prevItems) => [...prevItems, newRetreat]);
+    setLocalRetreat(newRetreat);
     onClose();
   };
 
@@ -129,11 +135,11 @@ const AddRetreatPopup: React.FC<AddRetreatPopupProps> = ({
               name="numOfParticipants"
               type="number"
               fullWidth
-              value={newRetreat?.numOfParticipants}
+              value={newRetreat?.maximumParticipantsAmount}
               onChange={(e) =>
                 setNewRetreat({
                   ...newRetreat,
-                  numOfParticipants: parseInt(e.target.value),
+                  maximumParticipantsAmount: parseInt(e.target.value),
                 })
               }
             />

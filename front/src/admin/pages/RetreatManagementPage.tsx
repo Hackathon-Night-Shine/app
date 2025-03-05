@@ -1,45 +1,62 @@
 import { Button, Card } from "@mui/material";
-import AddRetreatPopup from "./AddRetreatPopUp";
-import { useState } from "react";
 import moment from "moment";
-
-export type Retreat = {
-  imageSrc: string;
-  name: string;
-  description: string;
-  destination: string;
-  createDate: Date;
-  startDate: moment.Moment | null;
-  endDate: moment.Moment | null;
-  numOfParticipants: number;
-};
+import { useEffect, useState } from "react";
+import { RetreatManagementList } from "../../components/retreats/RetreatList";
+import { LocallyCreatedRetreat, Retreat } from "../types/retreatTypes";
+import AddRetreatPopup from "./components/AddRetreatPopUp";
 
 const retreats: Retreat[] = [
   {
+    id: 1,
     imageSrc: "https://example.com/image1.jpg",
     name: "Mountain Retreat",
     description: "A peaceful retreat in the mountains.",
     destination: "Mountain",
-    createDate: new Date("2023-01-01"),
     startDate: moment("2023-01-01"),
     endDate: moment("2023-01-07"),
-    numOfParticipants: 0,
+    avilableParticipantsAmount: 10,
+    maximumParticipantsAmount: 20,
+    status: "open",
   },
   {
+    id: 2,
     imageSrc: "https://example.com/image2.jpg",
     name: "Beach Retreat",
     description: "A relaxing retreat by the beach.",
     destination: "Mountain",
-    createDate: new Date("2023-02-01"),
     startDate: moment("2023-01-01"),
     endDate: moment("2023-01-07"),
-    numOfParticipants: 0,
+    avilableParticipantsAmount: 10,
+    maximumParticipantsAmount: 20,
+    status: "open",
   },
 ];
 
 const RetreatManagementPage = () => {
   const [retreatsArr, setRetreatsArr] = useState(retreats);
+  const [locallyCreatedRetreat, setLocallyCreatedRetreat] =
+    useState<LocallyCreatedRetreat>();
   const [isAddRetreatPopupOpen, setIsAddRetreatPopupOpen] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setRetreatsArr((prevState) =>
+        locallyCreatedRetreat
+          ? [
+              ...prevState,
+              {
+                ...locallyCreatedRetreat,
+                avilableParticipantsAmount:
+                  locallyCreatedRetreat.maximumParticipantsAmount,
+                id: prevState.length + 1,
+              },
+            ]
+          : prevState
+      );
+
+      setLocallyCreatedRetreat(undefined);
+    }, 1000);
+  }, [locallyCreatedRetreat]);
 
   return (
     <Card style={{ display: "flex", flexDirection: "column" }}>
@@ -52,28 +69,14 @@ const RetreatManagementPage = () => {
       {isAddRetreatPopupOpen && (
         <AddRetreatPopup
           onClose={() => setIsAddRetreatPopupOpen(false)}
-          setRetreats={setRetreatsArr}
+          setLocalRetreat={setLocallyCreatedRetreat}
         />
       )}
-      <div
-        style={{
-          backgroundColor: "gray",
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        {...retreatsArr.map((retreat) => (
-          <div>
-            <img src={retreat.imageSrc} alt={retreat.name} />
-            <h2>{retreat.name}</h2>
-            <p>{retreat.description}</p>
-            <p>{retreat.createDate.toDateString()}</p>
-          </div>
-        ))}
-      </div>
+      <RetreatManagementList
+        retreats={retreatsArr}
+        pendingRetreat={locallyCreatedRetreat}
+        editable
+      />
     </Card>
   );
 };
