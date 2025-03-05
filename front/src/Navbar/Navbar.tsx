@@ -4,13 +4,6 @@ import { Link } from "react-router-dom";
 import Home from "../Pages/Home/Home";
 import Audience from "../Pages/Audience/Audience";
 
-// export enum Pages {
-// 	'/' = 'דף הבית',
-// 	'/idea' = 'הרעיון',
-// 	'/audience' = 'קהל היעד',
-// 	'/contact' = "צרו קשר"
-// }
-
 type Page = {
 	path: string;
     component: ReactElement<any, any>;

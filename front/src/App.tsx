@@ -2,7 +2,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
-import Navbar from './Navbar/navbar';
+import Navbar from './Navbar/Navbar';
 import { theme } from './theme';
 import Home from './Pages/Home/Home';
 import Audience from './Pages/Audience/Audience';
