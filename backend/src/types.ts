@@ -7,6 +7,16 @@ export interface UserType {
   october7thExperience: October7thExperience;
 }
 
+export interface RetreatType {
+  name: string;
+  description: string;
+  imgSrc: string;
+  startDate: Date;
+  endDate: Date;
+  destination: string;
+  maxParticipantsAmount: number;
+}
+
 export enum UserRole {
   CLIENT = "client",
   ADMIN = "admin",
@@ -30,10 +40,11 @@ export enum Status {
   PENDING = "pending",
   APPROVED = "approved",
   DENIED = "denied",
+  PROCESSING = 'processing',
 }
 
 export enum ReviewFutureParticipationStatus {
   OF_COURSE = "ofCourse",
-  HARD_TO_DESIDE = "hardToDeside",
+  HARD_TO_DECIDE = "hardToDecide",
   FULFILLED = "fulfilled",
 }
