@@ -1,0 +1,256 @@
+
+body {
+    color: #69350F;
+    background-color: #F5F2E9;
+    /* margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw; */
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsive */
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  /* Each Grid Square (Collage Unit) */
+  .gallery-item {
+    /* position: relative; */
+    width: 100%;
+    aspect-ratio: 1/1;
+    /* overflow: hidden; */
+    background-color: #f9f6f0;
+    border-radius: 8px;
+  }
+
+  
+
+  /* 🎯 Collage-4: 4 Images */
+.layout-1 .img-1 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 40%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.layout-1 .img-2 {
+  position: absolute;
+  top: 70%;
+  left: 0%;
+  width: 40%;
+  height: 30%;
+  object-fit: cover;
+}
+
+.layout-1 .img-3 {
+  position: absolute;
+  top: 0%;
+  left: 40%;
+  width: 60%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.layout-1 .img-4 {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  width: 60%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.layout-2 .img-1 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.layout-2 .img-2 {
+  position: absolute;
+  top: 70%;
+  left: 0%;
+  width: 50%;
+  height: 30%;
+  object-fit: cover;
+}
+
+.layout-2 .img-3 {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  width: 50%;
+  height: 30%;
+  object-fit: cover;
+}
+
+.layout-3 .img-1 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 50%;
+  height: 30%;
+  object-fit: cover;
+}
+
+.layout-3 .img-2 {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  width: 50%;
+  height: 30%;
+  object-fit: cover;
+}
+
+.layout-3 .img-3 {
+  position: absolute;
+  top: 30%;
+  left: 0%;
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.layout-4 .img-1 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.layout-4 .img-2 {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
+
+/* 🎯 Collage-1: Single Full Image */
+.layout-5 .img-1 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+  /* .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .gallery-item {
+    display: grid;
+    overflow: hidden;
+    background-color: #f9f6f0;
+    border-radius: 8px;
+  }
+                                                                                                                                                                                                                                     
+  /* 🎨 Layout 1: 2x2 Grid */
+  .layout-1 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  
+  .layout-1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* 🎨 Layout 2: 2 Side-by-Side */
+  .layout-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .layout-2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* 🎨 Layout 3: Single Full-Square */
+  .layout-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .layout-3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .layout-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .layout-4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .layout-5 {
+    grid-template-columns: 1fr;
+  }
+  
+  .layout-5 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  } */
+  
+  /* .gallery {
+    column-count: 3;
+    column-gap: 10px;
+  }
+  
+  .gallery img {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  } */
+  
+  .title-container {
+    text-align: center;
+    background-color: #F5F2E9;
+    padding: 0px;
+  }
+  
+  .title-text {
+    font-size: 48px;
+    line-height: normal;
+    color: #69350F;
+    font-weight: bold;
+  }
+  
+  .orange-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #F28C28;
+    text-align: center;
+    direction: rtl;
+  }
+  
+  .custom-line {
+    width: 60vw; /* Adjust width as needed */
+    height: 1px; /* Controls thickness */
+    background-color: #c9a882; /* Adjust color to match */
+    margin: 50px auto; /* Centers the line and adds spacing */
+  }
+  
