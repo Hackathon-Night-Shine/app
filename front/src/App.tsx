@@ -12,7 +12,10 @@ import './App.css';
 import { Audience } from './components/audience';
 import GoogleLogin from './components/GoogleLogin/GoogleLogin';
 import { HomePage } from './components/home';
-
+import {InvoiceForm} from './admin/pages/components/InvoiceForm/InvoiceForm'
+import InvoiceManager from './admin/pages/components/InvoiceForm/InvoiceManager'
+import SupplierTable from './admin/pages/components/InvoiceForm/SupplierTable';
+import AddSupplier from './admin/pages/components/InvoiceForm/AddSupplier';
 
 const CLIENT_ID = '1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com';
 
@@ -33,6 +36,10 @@ const App = () => {
               <Route path='/retreat' element={<RetreatManagementPage />} />
               <Route path='/about' element={<HomePage />} />
               <Route path='/contact' element={<HomePage />} />
+              <Route path='/InvoiceForm' element={<InvoiceForm />} />
+              <Route path='/InvoiceManager' element={<InvoiceManager />} />
+              <Route path='/SupplierTable' element={<SupplierTable/>}/>
+              <Route path='/AddSupplier' element={<AddSupplier/>}/>
             </Routes>
             <img src={footer} style={{ width: '100%' }} />
           </div>

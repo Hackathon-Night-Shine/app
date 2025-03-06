@@ -14,7 +14,7 @@ import {
 } from '@mui/icons-material';
 
 export default function Home() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // ⬅️ לשימוש בניווט
 
   const features = [
     {
@@ -25,9 +25,9 @@ export default function Home() {
     },
     {
       icon: <TrendingUpIcon sx={{ fontSize: 40 }} />,
-      title: 'My Info',
-      description: 'Track patient health trends and progress',
-      action: () => {}
+      title: 'מידע',
+      description: 'ספקים וחשבוניות',
+      action: () => navigate('/SupplierTable') // ⬅️ ניווט לעמוד ספקים
     },
     {
       icon: <CalendarIcon sx={{ fontSize: 40 }} />,
@@ -64,7 +64,7 @@ export default function Home() {
                   bgcolor: 'primary.50'
                 }
               }}
-              onClick={feature.action}
+              onClick={feature.action} // ⬅️ פעולה בעת לחיצה
             >
               <Box sx={{ color: 'primary.main', mb: 2 }}>
                 {feature.icon}
@@ -77,7 +77,7 @@ export default function Home() {
               </Typography>
               <Button
                 variant="contained"
-                onClick={feature.action}
+                onClick={feature.action} // ⬅️ כפתור הניווט
                 sx={{ mt: 'auto' }}
               >
                 Access

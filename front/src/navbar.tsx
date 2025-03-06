@@ -8,7 +8,7 @@ export enum Pages {
 	'/retreat' = "על הריטריט",
 	'/about' = "מי אנחנו",
 	'/contact' = "צרו קשר",
-	'/manegerHome' = 'דף מנהל'
+	'/manegerHome' = 'דף מנהל',
 }
 
 const Navbar: React.FC = () => {
