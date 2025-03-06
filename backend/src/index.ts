@@ -4,13 +4,14 @@ import cors from "cors";
 import { config } from "dotenv";
 import { AppDataSource } from "./connection";
 import userRoutes from "./routes/userRoutes";
+import { suppliersRouter } from "./routes/suppliersRouter";
+import { receiptsRouter } from "./routes/recieptsRouter";
 
 // Load environment variables
 config();
 
 // Create Express app
 export const app = express();
-const port = 3000;
 
 // Middleware
 app.use(cors());
@@ -18,6 +19,8 @@ app.use(express.json());
 
 // Routes
 app.use("/api", userRoutes);
+app.use("/suppliers", suppliersRouter);
+app.use('/receipts', receiptsRouter);
 
 // Default route
 app.get("/", (req, res) => {
