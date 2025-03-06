@@ -12,7 +12,7 @@ const ExpandedRetreatDialog: React.FC<DialogProps<Retreat>> = ({
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogContent>
-        <Stack direction="row" gap={20}>
+        <Stack direction="row" gap={{ md: 20, sm: 10, xs: 5 }}>
           <Stack direction="column">
             <Typography variant="h5">{payload.name}</Typography>
             <Typography variant="subtitle1">{payload.destination}</Typography>
