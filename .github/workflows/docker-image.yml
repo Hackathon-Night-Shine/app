@@ -56,6 +56,7 @@ jobs:
         run: |
           ssh -tt $SERVER_USER@$SERVER_IP << 'EOF'
             ls # Make sure this is the correct path on your server
+            cd ./app
             git pull origin main         # Pull the latest changes from the `main` branch
             cd /app/docker/night-shine
             docker-compose down          # Stop and remove any existing containers
