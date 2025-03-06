@@ -3,12 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import { Container, ProGallery } from "pro-gallery";
 import "pro-gallery/dist/statics/main.css";
 
-interface Item {
-    itemId: string,
-    mediaUrl: string,
-    metaData: { title: string, aspectRatio: number }
-};
-
 const FullHeightGallery = () => {
     const galleryRef = useRef(null);
     const [container, setContainer] = useState<Container>({ width: window.innerWidth, height: window.innerHeight });
