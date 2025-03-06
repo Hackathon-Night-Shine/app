@@ -18,7 +18,7 @@ services:
   front:
     image: nightshine353/front:latest
     ports:
-      - "5173:5173"
+      - "8080:8080"
     depends_on:
       - back
     networks:
@@ -27,7 +27,7 @@ services:
   back:
     image: nightshine353/back:latest
     ports:
-      - "8000:8000"
+      - "443:443"
     environment:
       - DB_HOST=postgres-db
       - DB_PORT=5432
