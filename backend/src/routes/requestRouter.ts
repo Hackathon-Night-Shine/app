@@ -7,7 +7,7 @@ const router = Router();
 router.get("/request", async (req, res) => {
   try {
     const requestRepository = dataSource.getRepository(Request);
-    const requests = await requestRepository.find();
+    const requests = await requestRepository.find({relations: ['client', 'retreat']});
     res.json(requests);
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch requests", error });
