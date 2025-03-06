@@ -23,6 +23,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         run: |
+          ls
           docker build -t $DOCKER_USERNAME/back:latest ./back
           docker push $DOCKER_USERNAME/back:latest
 
