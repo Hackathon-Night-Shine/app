@@ -9,7 +9,7 @@ export class Receipt {
     cost: number;
 
     @Column({ type: 'float', nullable: true })
-    number: number;
+    orderNumber: number;
 
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     createdTs: Date;
@@ -18,5 +18,5 @@ export class Receipt {
     description: string;
     
     @Column({ type: 'boolean', nullable: true })
-    is_paid: boolean;
+    isPaid: boolean;
 }

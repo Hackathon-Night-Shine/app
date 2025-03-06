@@ -29,7 +29,7 @@ receiptsRouter.get("/:supplierId", async (req, res) => {
             .createQueryBuilder("receipt")
             .innerJoin("supplier_receipt", "sr", "receipt.id = sr.receiptId")
             .where("sr.supplierId = :supplierId", { supplierId })
-            .andWhere("receipt.is_payed = false")
+            .andWhere("receipt.isPayed = false")
             .select("SUM(receipt.cost)", "total").getRawOne();
         res.json(receiptsNotPaidSum);
     } catch (error) {
