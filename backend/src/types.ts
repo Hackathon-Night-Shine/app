@@ -7,6 +7,16 @@ export interface UserType {
   october7thExperience: October7thExperience;
 }
 
+export interface RetreatType {
+  name: string;
+  description: string;
+  imgSrc: string;
+  startDate: Date;
+  endDate: Date;
+  destination: string;
+  maxParticipantsAmount: number;
+}
+
 export enum UserRole {
   CLIENT = "client",
   ADMIN = "admin",
