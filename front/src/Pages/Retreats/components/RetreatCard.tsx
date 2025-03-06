@@ -36,7 +36,7 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
 
   return (
     <Card
-      sx={{ overflow: "visible", height: "100%" }}
+      sx={{ overflow: "visible", height: "100%", minWidth: "100px"}}
       onClick={(e: { target: { closest: (arg0: string) => any } }) => {
         if (!editable && !e.target.closest(EXCLUDED_EXPANSIONS_CLASSES)) {
           handleExpandRetreat();
@@ -58,30 +58,28 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
         image={retreat.imageSrc}
         alt="..."
       />
+
       <CardContent>
         <Typography variant="h5" textAlign="start">
           {retreat.name}
         </Typography>
+
         <Typography variant="subtitle1" textAlign="start">
           {retreat.destination}
         </Typography>
-        <Typography variant="body1" textAlign="start">
-          <Typography
-            variant="body1"
-            textAlign="start"
-            sx={{
+
+        <Typography variant="body1" textAlign="start" sx={{
               overflow: "hidden",
               textOverflow: "ellipsis",
-              display: "-webkit-box",
-              WebkitLineClamp: "2",
+              WebkitLineClamp: 2,
               WebkitBoxOrient: "vertical",
               minHeight: "3em",
-            }}
-          >
+            }}>
             {retreat.description}
-          </Typography>
         </Typography>
+
         <Divider sx={{ margin: "revert" }} />
+
         <Stack
           direction="row"
           justifyContent="space-between"
@@ -91,10 +89,12 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
           <Typography variant="caption" fontWeight="bold">
             התחלה
           </Typography>
+
           <Typography variant="caption">
             {generateDateWithDayHebrew(retreat.startDate.toDate())}
           </Typography>
         </Stack>
+
         <Stack
           direction="row"
           justifyContent="space-between"
@@ -107,11 +107,13 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
             {generateDateWithDayHebrew(retreat.endDate.toDate())}
           </Typography>
         </Stack>
+
         <Typography
           variant="body1"
           fontWeight="bold"
         >{`${retreat.avilableParticipantsAmount}/${retreat.maximumParticipantsAmount} מקומות נותרו`}</Typography>
       </CardContent>
+      
       <CardActions>
         {!editable && <RetreatActionButton status={retreat.status} />}
         {editable && (
