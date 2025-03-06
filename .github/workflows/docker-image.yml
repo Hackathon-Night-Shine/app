@@ -55,7 +55,7 @@ jobs:
           SERVER_IP: ${{ secrets.SERVER_IP }}
         run: |
           ssh -tt $SERVER_USER@$SERVER_IP << 'EOF'
-            cd /app  # Make sure this is the correct path on your server
+            ls # Make sure this is the correct path on your server
             git pull origin main         # Pull the latest changes from the `main` branch
             cd /app/docker/night-shine
             docker-compose down          # Stop and remove any existing containers
