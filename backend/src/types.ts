@@ -10,10 +10,10 @@ export interface UserType {
 export interface RetreatType {
   name: string;
   description: string;
-  imgSrc: string;
+  img: string;
   startDate: Date;
   endDate: Date;
-  destination: string;
+  address: string;
   maxParticipantsAmount: number;
 }
 

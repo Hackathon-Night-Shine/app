@@ -17,12 +17,21 @@ export class Retreat {
   @Column({ nullable: true })
   phoneNumber: string;
 
-  @Column({ type: "bytea", nullable: true })
-  img: Buffer;
+  @Column({ nullable: true })
+  img: string;
 
   @Column({ type: "smallint", nullable: true })
   capacity: number;
 
   @Column({ type: "timestamp", nullable: true })
   dateTs: Date;
+
+  @Column({ type: "smallint", nullable: true })
+  currentParticipants: number;
+
+  @Column({ type: "date", nullable: true })
+  startDate: Date;
+
+  @Column({ type: "date", nullable: true })
+  endDate: Date;
 }

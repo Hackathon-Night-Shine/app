@@ -24,7 +24,7 @@ router.post("/retreats", async (req, res) => {
   }
 
   const retreatRepository = dataSource.getRepository(Retreat);
-  const newRetreat = retreatRepository.create(retreat);
+  const newRetreat = retreatRepository.create({...retreat, currentParticipants: 0});
   await retreatRepository.save(newRetreat);
 
   res.status(201).json(newRetreat);
