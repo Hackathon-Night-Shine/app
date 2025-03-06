@@ -409,7 +409,7 @@ const CourseFeedbackForm = () => {
       </Box>
     );
   };
-   const RatingCircles = ({ value, onChange, name, error }) => {
+  const RatingCircles = ({ value, onChange, name, error }) => {
     return (
       <Box sx={{ textAlign: "right", direction: "rtl" }}>
         <RadioGroup
