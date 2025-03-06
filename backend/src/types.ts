@@ -34,6 +34,6 @@ export enum Status {
 
 export enum ReviewFutureParticipationStatus {
   OF_COURSE = "ofCourse",
-  HARD_TO_DESIDE = "hardToDeside",
+  HARD_TO_DECIDE = "hardToDecide",
   FULFILLED = "fulfilled",
 }
