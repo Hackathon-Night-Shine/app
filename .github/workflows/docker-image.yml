@@ -57,10 +57,9 @@ jobs:
         run: |
           ssh -tt $SERVER_USER@$SERVER_IP << 'EOF'
             ls # Make sure this is the correct path on your server
-            cd ./app
+            cd ./app/docker/night-shine
             sudo git config --global --add safe.directory /home/***/app
             sudo git pull origin main         # Pull the latest changes from the `main` branch
-            cd ./docker/night-shine
-            docker-compose down          # Stop and remove any existing containers
-            docker-compose up -d --build # Rebuild and start the containers
+            sudo docker compose down          # Stop and remove any existing containers
+            sudo docker compose up -d --build # Rebuild and start the containers
           EOF
