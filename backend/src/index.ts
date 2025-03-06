@@ -6,13 +6,14 @@ import { AppDataSource } from "./connection";
 import userRouter from "./routes/userRouter";
 import requestRouter from "./routes/requestRouter";
 import retreatsRouter from "./routes/retreatsRouter";
+import { suppliersRouter } from "./routes/suppliersRouter";
+import { receiptsRouter } from "./routes/recieptsRouter";
 
 // Load environment variables
 config();
 
 // Create Express app
 export const app = express();
-const port = process.env.PORT;
 
 // Middleware
 app.use(cors());
@@ -22,6 +23,8 @@ app.use(express.json());
 app.use("/api", userRouter);
 app.use("/api", requestRouter);
 app.use("/api", retreatsRouter);
+app.use("/api/suppliers", suppliersRouter);
+app.use('/api/receipts', receiptsRouter);
 
 // Default route
 app.get("/", (req, res) => {
