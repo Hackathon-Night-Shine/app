@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 import {
   LocallyCreatedRetreat,
   Retreat,
-} from "../../../../types/retreatTypes";
+} from "../../../admin/types/retreatTypes";
 import { RetreatCard } from "./RetreatCard";
 
 interface Props {

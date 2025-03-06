@@ -1,4 +1,4 @@
-type RetreatStatus = 'PENDING' | 'APPROVED' | 'DENIED' | 'PROCESSING';
+type RetreatStatus = 'open' | 'closed' | 'userSigned' | 'full';
 
 type Retreat = {
     id: number;

@@ -11,6 +11,7 @@ import Idea from "./Pages/Idea/Idea";
 import ContactForm from './Pages/Contact';
 import { RetreatManagementPage } from "./Pages/Retreats/RetreatManagementPage";
 import { theme } from "./theme";
+import { AboutTheRetreat } from "./components/aboutRetreat/retreat";
 
 const CLIENT_ID =
   "1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com";
@@ -39,6 +40,7 @@ const App = () => {
                   <Route path="/audience" element={<Audience />} />
                   <Route path="/contact" element={<ContactForm />} />
                   <Route path="/about-us" element={<AboutUs />} />
+                  <Route path="/about-retreat" element={<AboutTheRetreat />} />
                   <Route path="/idea" element={<Idea />} />
                   <Route path="/" element={<Home />} />
                   <Route path="*" element={<Home />} />
