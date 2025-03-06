@@ -10,7 +10,7 @@ import Audience from "./Pages/Audience/Audience";
 import ContactForm from "./Pages/Contact";
 import Home from "./Pages/Home/Home";
 import Idea from "./Pages/Idea/Idea";
-import { RetreatManagementPage } from "./Pages/Retreats/RetreatManagementPage";
+import { RetreatManagementPage } from "./Pages/Retreats/RetreatsPage";
 import { theme } from "./theme";
 
 const CLIENT_ID =
