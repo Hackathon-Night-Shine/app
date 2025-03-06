@@ -11,7 +11,10 @@ import ContactForm from "./Pages/Contact";
 import Home from "./Pages/Home/Home";
 import Idea from "./Pages/Idea/Idea";
 import { RetreatManagementPage } from "./Pages/Retreats/RetreatsPage";
+import ContactForm from "./Pages/Contact";
 import { theme } from "./theme";
+import { AboutTheRetreat } from "./components/aboutRetreat/retreat";
+import CourseFeedbackForm from "./Pages/Survey/CourseFeedbackForm";
 
 const CLIENT_ID =
   "1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com";
