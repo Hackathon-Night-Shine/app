@@ -20,7 +20,6 @@ router.get("/request/featchAllByRetreatId/:retreatId", async (req, res) => {
   try {
     const requestRepository = dataSource.getRepository(Request);
     const requests = await requestRepository.find({ where: { retreat: {id:retreatId} }, relations: ['client']});
-    console.log(requests)
     
     if (!requests) {
       res.status(404).json({ message: `Requests not found for ${retreatId}` });
@@ -28,7 +27,7 @@ router.get("/request/featchAllByRetreatId/:retreatId", async (req, res) => {
     }
     res.json(requests);
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch requests", error });
+    res.status(500).json({ message: `Failed to fetch requests for ${retreatId}`, error });
   }
 });
 
@@ -38,7 +37,6 @@ router.get("/request/featchAllByUserId/:userId", async (req, res) => {
     try {
       const requestRepository = dataSource.getRepository(Request);
       const requests = await requestRepository.find({ where: { client: {id:userId} }, relations: ['retreat']});
-      console.log(requests)
       
       if (!requests) {
         res.status(404).json({ message: `Requests not found for ${userId}` });
@@ -46,7 +44,7 @@ router.get("/request/featchAllByUserId/:userId", async (req, res) => {
       }
       res.json(requests);
     } catch (error) {
-      res.status(500).json({ message: "Failed to fetch requests", error });
+      res.status(500).json({ message: `Failed to fetch requests for ${userId}`, error });
     }
   });
 
