@@ -55,8 +55,7 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
           marginTop: "-5em",
           justifySelf: "center",
         }}
-        image={retreat.imageSrc}
-        alt="..."
+        image={retreat.img ?? "./assets/no_image.png"}
       />
       <CardContent>
         <Typography variant="h5" textAlign="start">
@@ -82,7 +81,7 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
           </Typography>
         </Typography>
         <Divider sx={{ margin: "revert" }} />
-        <Stack
+        {/* <Stack
           direction="row"
           justifyContent="space-between"
           alignItems="center"
@@ -106,12 +105,12 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
           <Typography variant="caption">
             {generateDateWithDayHebrew(retreat.endDate.toDate())}
           </Typography>
-        </Stack>
+        </Stack> */}
         <Typography
           variant="body1"
           fontWeight="bold"
           style={{ marginTop: '10px'}}
-        >{`${retreat.avilableParticipantsAmount}/${retreat.maximumParticipantsAmount} מקומות נותרו`}</Typography>
+        >{`${retreat.avilableParticipantsAmount}/${retreat.capacity} מקומות נותרו`}</Typography>
       </CardContent>
       <CardActions>
         {!editable && <RetreatActionButton status={retreat.status} />}

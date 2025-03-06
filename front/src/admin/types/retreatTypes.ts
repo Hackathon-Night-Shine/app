@@ -8,7 +8,7 @@ type Retreat = {
     startDate: moment.Moment;
     endDate: moment.Moment;
     destination: string;
-    maximumParticipantsAmount: number;
+    capacity: number;
     avilableParticipantsAmount: number;
     status: RetreatStatus;
 };

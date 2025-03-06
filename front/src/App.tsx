@@ -16,6 +16,7 @@ import Idea from "./Pages/Idea/Idea";
 import { RetreatManagementPage } from "./Pages/Retreats/RetreatsPage";
 import CourseFeedbackForm from "./Pages/Survey/CourseFeedbackForm";
 import { theme } from "./theme";
+import { useState } from "react";
 
 const CLIENT_ID =
   "1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com";
@@ -23,6 +24,8 @@ const CLIENT_ID =
 const queryClient = new QueryClient();
 
 const App = () => {
+  const [isAdmin, setIsAdmin] = useState(true);
+  
   return (
     <QueryClientProvider client={queryClient}>
       <GoogleOAuthProvider clientId={CLIENT_ID}>
@@ -38,14 +41,14 @@ const App = () => {
                   direction: "rtl",
                 }}
               >
-                <Navbar />
+                <Navbar isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>
                 <div style={{ height: "80%" }}>
                   <Routes>
                     <Route path="/auth" element={<GoogleLogin />} />
                     <Route path="/signUp" element={<SignUpPage />} />
                     <Route
                       path="/retreats"
-                      element={<RetreatManagementPage />}
+                      element={<RetreatManagementPage isAdmin={isAdmin} />}
                     />
                     <Route path="/audience" element={<Audience />} />
                     <Route path="/contact" element={<ContactForm />} />

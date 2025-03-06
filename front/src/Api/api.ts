@@ -1,8 +1,11 @@
 import axios from "axios";
+import { Retreat } from "../admin/types/retreatTypes";
 
 const axiosInstance = axios.create({
-    baseURL: "http://20.86.25.15:8000/api/"
+    baseURL: "http://localhost:443/api"
 });
 
-export { axiosInstance };
+const getRetreats = async (): Promise<Retreat[]> => (await axiosInstance.get('/retreats')).data;
+
+export { axiosInstance, getRetreats };
 

@@ -25,7 +25,7 @@ const GoogleLogin = () => {
 
       try {
         const user = await axios.get(
-          `http://localhost:3000/api/users?email=${userInfo.email}`
+          `http://localhost:443/api/users?email=${userInfo.email}`
         );
         console.log(user);
         setCurrentUser(user.data);

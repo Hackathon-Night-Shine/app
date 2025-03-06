@@ -1,9 +1,10 @@
-import { Typography } from "@mui/material";
+import { Switch, Typography } from "@mui/material";
 import { useAtom } from "jotai";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import defaultProfilePic from "../assets/defaultProfilePic.png";
 import { currentUserAtom } from "../jotai/CurrentUser";
+import { boolean } from "yup";
 
 type Page = {
   path: string;
@@ -34,19 +35,28 @@ const shouldHideAdminPage = (
   return isAdminPage && role !== "admin";
 };
 
-const Navbar: React.FC = () => {
-  const [currentUser, setCurrentUser] = useAtom(currentUserAtom);
+type NavbarProps = {
+  isAdmin: boolean,
+  setIsAdmin: (value: boolean) => void
+}
+
+const Navbar: React.FC<NavbarProps> = ({isAdmin, setIsAdmin}) => {
+  // const [currentUser, setCurrentUser] = useAtom(currentUserAtom);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsAdmin(event.target.checked);
+  };
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (
-      shouldHideAdminPage(adminOnlyRoutes, location.pathname, currentUser?.role)
-    ) {
-      navigate("/");
-    }
-  }, [location.pathname, currentUser]);
+  // useEffect(() => {
+  //   if (
+  //     shouldHideAdminPage(adminOnlyRoutes, location.pathname, currentUser?.role)
+  //   ) {
+  //     navigate("/");
+  //   }
+  // }, [location.pathname, currentUser]);
 
   return (
     <div
@@ -59,7 +69,13 @@ const Navbar: React.FC = () => {
         backgroundColor: "white",
       }}
     >
-      <>
+      <div>
+        <Switch
+        checked={isAdmin}
+        onChange={handleChange}
+      />
+      </div>
+      {/* <>
         {!!currentUser ? (
           <div style={{ display: "flex", gap: "8px" }}>
             <img
@@ -106,7 +122,7 @@ const Navbar: React.FC = () => {
             <Typography>התחברות</Typography>
           </Link>
         )}
-      </>
+      </> */}
       <div
         style={{
           display: "flex",
@@ -117,14 +133,7 @@ const Navbar: React.FC = () => {
       >
         {pages.map((page) => (
           <React.Fragment key={page.path}>
-            {shouldHideAdminPage(
-              adminOnlyRoutes,
-              page.path,
-              currentUser?.role
-            ) ? (
-              <></>
-            ) : (
-              <Link
+            <Link
                 key={page.path}
                 to={page.path}
                 style={{
@@ -135,7 +144,6 @@ const Navbar: React.FC = () => {
               >
                 {page.name}
               </Link>
-            )}
           </React.Fragment>
         ))}
       </div>

@@ -1,47 +1,22 @@
 import { Button, Card } from "@mui/material";
 import { useDialogs } from "@toolpad/core/useDialogs";
 import moment from "moment";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LocallyCreatedRetreat, Retreat } from "../../admin/types/retreatTypes";
 import { ManageRetreatDialog } from "./components/ManageRetreatDialog";
 import { RetreatManagementList } from "./components/RetreatList";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { useQuery } from '@tanstack/react-query';
+import { getRetreats } from "../../Api/api";
 
-const retreats: Retreat[] = [
-  {
-    id: 1,
-    imageSrc:
-      "https://rukminim3.flixcart.com/image/850/1000/kpcy5jk0/poster/h/c/w/large-village-poster-scenery-scenrym-68-original-imag3m8vrkdztzva.jpeg?q=20&crop=false",
-    name: "Mountain Retreat",
-    description: "A peaceful retreat in the mountains.",
-    destination: "Mountain",
-    startDate: moment("2023-01-01"),
-    endDate: moment("2023-01-07"),
-    avilableParticipantsAmount: 10,
-    maximumParticipantsAmount: 20,
-    status: "userSigned",
-  },
-  {
-    id: 2,
-    imageSrc:
-      "https://rukminim3.flixcart.com/image/850/1000/kpcy5jk0/poster/h/c/w/large-village-poster-scenery-scenrym-68-original-imag3m8vrkdztzva.jpeg?q=20&crop=false",
-    name: "Beach Retreat",
-    description: "A relaxing retreat by the beach.",
-    destination: "Mountain",
-    startDate: moment("2023-01-01"),
-    endDate: moment("2023-01-07"),
-    avilableParticipantsAmount: 10,
-    maximumParticipantsAmount: 20,
-    status: "open",
-  },
-];
+type RetreatManagementPageProps = {
+  isAdmin: boolean;
+}
+const RetreatManagementPage: React.FC <RetreatManagementPageProps> = ({isAdmin}) => {
+  const { data, isSuccess, error } = useQuery({ queryKey: ['retreats'], queryFn: getRetreats });
 
-const RetreatManagementPage = () => {
   const dialogs = useDialogs();
-  const [retreatsArr, setRetreatsArr] = useState(retreats);
-  const [locallyCreatedRetreat, setLocallyCreatedRetreat] =
-    useState<LocallyCreatedRetreat>();
-  const isAdmin = true;
+  const [locallyCreatedRetreat, setLocallyCreatedRetreat] = useState<LocallyCreatedRetreat>();
 
   const handleCreateRetreatClick = async () => {
     const retreatToCreate = await dialogs.open(ManageRetreatDialog, {
@@ -60,25 +35,25 @@ const RetreatManagementPage = () => {
     }
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setRetreatsArr((prevState) =>
-        locallyCreatedRetreat
-          ? [
-              ...prevState,
-              {
-                ...locallyCreatedRetreat,
-                avilableParticipantsAmount:
-                  locallyCreatedRetreat.maximumParticipantsAmount,
-                id: prevState.length + 1,
-              },
-            ]
-          : prevState
-      );
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setRetreatsArr((prevState) =>
+  //       locallyCreatedRetreat
+  //         ? [
+  //             ...prevState,
+  //             {
+  //               ...locallyCreatedRetreat,
+  //               avilableParticipantsAmount:
+  //                 locallyCreatedRetreat.maximumParticipantsAmount,
+  //               id: prevState.length + 1,
+  //             },
+  //           ]
+  //         : prevState
+  //     );
 
-      setLocallyCreatedRetreat(undefined);
-    }, 1000);
-  }, [locallyCreatedRetreat]);
+  //     setLocallyCreatedRetreat(undefined);
+  //   }, 1000);
+  // }, [locallyCreatedRetreat]);
 
   return (
     <Card style={{ display: "flex", flexDirection: "column", backgroundColor: '#F9F6F0', gap: '10px', padding: '10px' }}>
@@ -88,11 +63,14 @@ const RetreatManagementPage = () => {
           <AddCircleIcon/>
         </Button>
       )}
-      <RetreatManagementList
-        retreats={retreatsArr}
-        pendingRetreat={locallyCreatedRetreat}
-        editable={isAdmin}
-      />
+      {isSuccess 
+        ? <RetreatManagementList
+            retreats={data}
+            pendingRetreat={locallyCreatedRetreat}
+            editable={isAdmin}
+          />
+        : <h1>{error?.message}</h1>}
+      
     </Card>
   );
 };
