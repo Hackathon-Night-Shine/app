@@ -78,11 +78,13 @@ const ManageRetreatDialog: React.FC<
             <TextField
               label="תיאור"
               defaultValue={tempRetreat.description}
+              sx={{ marginTop: '16px'}}
               onChange={handleInputfieldChange("description")}
               rows={5}
               multiline
               fullWidth
             />
+
           </Grid2>
           <Grid2 direction="column" gap={2} justifyContent="space-around">
             <ImageUploader
@@ -91,6 +93,7 @@ const ManageRetreatDialog: React.FC<
               handleSourceUpdate={handleImageUpdate}
             />
             <TextField
+              sx={{ marginTop: '16px'}}
               label="מספר משתתפים מקסימלי"
               name="numOfParticipants"
               type="number"

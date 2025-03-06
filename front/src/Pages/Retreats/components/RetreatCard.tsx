@@ -117,6 +117,7 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
         {!editable && <RetreatActionButton status={retreat.status} />}
         {editable && (
           <Button
+            sx={{ borderColor: '#f8b377'}}
             variant="outlined"
             startIcon={<EditIcon />}
             fullWidth

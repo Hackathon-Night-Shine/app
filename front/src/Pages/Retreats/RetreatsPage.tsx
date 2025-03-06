@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { LocallyCreatedRetreat, Retreat } from "../../admin/types/retreatTypes";
 import { ManageRetreatDialog } from "./components/ManageRetreatDialog";
 import { RetreatManagementList } from "./components/RetreatList";
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const retreats: Retreat[] = [
   {
@@ -80,10 +81,11 @@ const RetreatManagementPage = () => {
   }, [locallyCreatedRetreat]);
 
   return (
-    <Card style={{ display: "flex", flexDirection: "column", backgroundColor: '#F9F6F0' }}>
+    <Card style={{ display: "flex", flexDirection: "column", backgroundColor: '#F9F6F0', gap: '10px', padding: '10px' }}>
       {isAdmin && (
-        <Button variant="contained" onClick={handleCreateRetreatClick}>
-          הוסף ריטריט
+        <Button variant="contained" style={{ width: '25%', display: 'flex', gap: '4px', margin: 'auto' }} onClick={handleCreateRetreatClick}>
+          להוספת אירוע חדש
+          <AddCircleIcon/>
         </Button>
       )}
       <RetreatManagementList

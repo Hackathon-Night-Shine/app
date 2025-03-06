@@ -102,10 +102,11 @@ export const theme = createTheme({
           fontSize: "1rem",
         },
         contained: {
-          backgroundColor: "#f4511e",
+          backgroundColor: "#f8b377",
+          boxShadow: 'none',
           color: "#ffffff",
           "&:hover": {
-            backgroundColor: "#e64a19",
+            backgroundColor: "#f8b377",
           },
         },
         text: {
