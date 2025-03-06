@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import { config } from "dotenv";
 import { AppDataSource } from "./connection";
-import userRoutes from "./routes/userRoutes";
+import userRouter from "./routes/userRouter";
 import retreatsRouter from "./routes/retreatsRouter";
 
 // Load environment variables
@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use("/api", userRoutes);
+app.use("/api", userRouter);
 app.use("/api", retreatsRouter);
 
 // Default route

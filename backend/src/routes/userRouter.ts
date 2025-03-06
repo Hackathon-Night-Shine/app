@@ -27,12 +27,12 @@ router.get("/users/:email", async (req, res) => {
     const user = await userRepository.findOne({ where: { email } });
 
     if (!user) {
-      res.status(404).json({ message: "User not found" });
+      res.status(404).json({ message: `User with email ${email} not found` });
       return;
     }
     res.json(user);
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch user", error });
+    res.status(500).json({ message: "Failed to fetch user by email", error });
   }
 });
 
