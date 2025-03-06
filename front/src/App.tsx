@@ -11,6 +11,7 @@ import './App.css';
 import { Audience } from './components/audience';
 import GoogleLogin from './components/GoogleLogin/GoogleLogin';
 import { HomePage } from './components/home';
+import { AboutTheRetreat } from './components/aboutRetreat/retreat';
 
 const CLIENT_ID = '1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com';
 
@@ -30,7 +31,7 @@ const App = () => {
                             <Route path='/idea' element={<HomePage />} />
                             <Route path='/audience' element={<Audience />} />
                             <Route path='/retreat' element={<RetreatManagementPage />} />
-                            <Route path='/about' element={<HomePage />} />
+                            <Route path='/about' element={<AboutTheRetreat />} />
                             <Route path='/contact' element={<HomePage />} />
                         </Routes>
                     </div>
