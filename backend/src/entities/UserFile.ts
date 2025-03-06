@@ -44,4 +44,7 @@ export class UserFile {
 
     @Column({ type: 'text', nullable: true })
     emergency_poc: string;
+
+    @Column({ type: 'text', nullable: true })
+    admin_notes: string;
 }
