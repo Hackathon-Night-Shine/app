@@ -12,7 +12,7 @@ config();
 
 // Create Express app
 export const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 // Middleware
 app.use(cors());
