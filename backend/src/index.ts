@@ -10,7 +10,6 @@ config();
 
 // Create Express app
 export const app = express();
-const port = 3000;
 
 // Middleware
 app.use(cors());
@@ -29,7 +28,7 @@ AppDataSource()
         console.log("Database created and data source initialized successfully!");
         // Your application code here
         // Start the server
-        const port = process.env.PORT || 3000;
+        const port = process.env.PORT || 443;
         app.listen(port, () => {
             console.log(`Server is running on port ${port}`);
         });
