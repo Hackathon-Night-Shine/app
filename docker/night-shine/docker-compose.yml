@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  postgres-db:
+    image: postgres:16
+    container_name: postgres-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - night_shine_network
+
+  front:
+    image: nightshine353/front:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - back
+    networks:
+      - night_shine_network
+
+  back:
+    image: nightshine353/back:latest
+    ports:
+      - "443:443"
+    environment:
+      - DB_HOST=postgres-db
+      - DB_PORT=5432
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+    depends_on:
+      - postgres-db
+    networks:
+      - night_shine_network
+
+volumes:
+  postgres_data:
+
+networks:
+  night_shine_network:
+    driver: bridge

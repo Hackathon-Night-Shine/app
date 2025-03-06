@@ -1,0 +1,50 @@
+services:
+  prometheus:
+    image: prom/prometheus:v2.46.0
+    ports:
+      - 9090:9090
+    volumes:
+      - ./MonitoringStack/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - monitoring_network
+  node-exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    ports:
+      - 9100:9100
+    networks:
+      - monitoring_network
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+     - '3000:3000'
+    environment:
+      - GF_SECURITY_ADMIN_USER=adminuser
+      - GF_SECURITY_ADMIN_PASSWORD=supersecret
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    networks:
+      - monitoring_network
+
+  postgres-exporter:
+    image: wrouesnel/postgres_exporter
+    restart: always
+    environment:
+      - DATA_SOURCE_URI=postgres-db:5432/postgres?sslmode=disable
+      - DATA_SOURCE_USER=postgres
+      - DATA_SOURCE_PASS=kingshoval!123
+    ports:
+      - "9187:9187"
+    networks:
+      - night_shine_network
+      - monitoring_network
+    depends_on:
+      - postgres-db
+      
+volumes:
+  grafana-storage: {}
+
+networks:
+  monitoring_network:
+    driver: bridge

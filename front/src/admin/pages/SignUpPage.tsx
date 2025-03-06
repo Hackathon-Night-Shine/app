@@ -1,8 +1,7 @@
-import React from 'react';
 import { useLocation } from 'react-router-dom';
 import UserSignUp from '../../Login/UserSignUp/UserSignUp';
 
-const SignUpPage: React.FC = () => {
+const SignUpPage = () => {
     const location = useLocation();
 
     const userDetails = location.state;
