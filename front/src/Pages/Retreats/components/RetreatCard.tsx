@@ -8,13 +8,13 @@ import {
   Divider,
   Stack,
   Typography,
-} from "@mui/material"
-import { Retreat } from "../../../../types/retreatTypes";
-import { useDialogs } from "@toolpad/core/useDialogs";
+} from "@mui/material";
+import { useDialogs } from "@toolpad/core";
+import { Retreat } from "../../../admin/types/retreatTypes";
 import { generateDateWithDayHebrew } from "../../../utils/dateUtils";
-import { RetreatActionButton } from "./RetreatActionButton";
 import { ExpandedRetreatDialog } from "./ExpandedRetreatDialog";
 import { ManageRetreatDialog } from "./ManageRetreatDialog";
+import { RetreatActionButton } from "./RetreatActionButton";
 
 interface Props {
   retreat: Retreat;
