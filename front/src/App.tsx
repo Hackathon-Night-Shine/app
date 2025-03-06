@@ -5,6 +5,7 @@ import { DialogsProvider } from "@toolpad/core/useDialogs";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUpPage from "./admin/pages/SignUpPage";
 import footer from "./assets/logoUnderPhoto.png";
+import { AboutTheRetreat } from "./components/aboutRetreat/retreat";
 import GoogleLogin from "./Login/GoogleLogin/GoogleLogin";
 import Navbar from "./Navbar/Navbar";
 import { AboutUs } from "./Pages/AboutUs";
@@ -49,6 +50,10 @@ const App = () => {
                     <Route path="/audience" element={<Audience />} />
                     <Route path="/contact" element={<ContactForm />} />
                     <Route path="/about-us" element={<AboutUs />} />
+                    <Route
+                      path="/about-retreat"
+                      element={<AboutTheRetreat />}
+                    />
                     <Route path="/survey" element={<CourseFeedbackForm />} />
                     <Route path="/idea" element={<Idea />} />
                     <Route path="/" element={<Home />} />
