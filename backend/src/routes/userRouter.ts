@@ -49,6 +49,7 @@ router.get('/users', async (req, res) => {
         res.status(500).json({ message: 'Failed to fetch users', error });
     }
 });
+
 router.get('/all-users', async (req, res) => {
     try {
         const userRepository = dataSource.getRepository(User);
@@ -76,7 +77,7 @@ router.get('/users/byEmail/:email', async (req, res) => {
         }
         res.json(user);
     } catch (error) {
-        res.status(500).json({ message: 'Failed to fetch user', error });
+        res.status(500).json({ message: 'Failed to fetch usersssss', error });
     }
 });
 
