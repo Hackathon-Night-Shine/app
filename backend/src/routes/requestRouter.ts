@@ -2,10 +2,8 @@ import { Router } from "express";
 import { dataSource } from "../connection";
 import { Request } from "../entities/Request";
 
-// Create the router instance
 const router = Router();
 
-// Get all users
 router.get("/request", async (req, res) => {
   try {
     const requestRepository = dataSource.getRepository(Request);
