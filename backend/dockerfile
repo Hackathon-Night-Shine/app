@@ -19,8 +19,5 @@ ENV NODE_ENV=production
 # Compile TypeScript to JavaScript
 RUN npm run build
 
-# Expose the application port (adjust if needed)
-EXPOSE 3000
-
 # Run the application
 CMD ["node", "dist/index.js"]
