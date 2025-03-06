@@ -1,13 +1,14 @@
+import { Button } from '@mui/material';
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
-import { useState } from 'react';
-import UserSignUp from '../UserSignUp/UserSignUp';
+import { useSetAtom } from 'jotai';
 import { useNavigate } from 'react-router-dom';
+import { currentUserAtom } from '../../jotai/CurrentUser';
 
 const GoogleLogin = () => {
     const navigate = useNavigate();
 
-    const [userDetails, setUserDetails] = useState<any | undefined>(undefined);
+    const setCurrentUser = useSetAtom(currentUserAtom);
 
     const getUserInfo = async (access_token: string) => {
         return await axios
@@ -21,21 +22,20 @@ const GoogleLogin = () => {
         onSuccess: async (tokenResponse) => {
             const userInfo = await getUserInfo(tokenResponse.access_token);
 
-            // check if user is already exists and update user verify by that
-
-            setUserDetails({ ...userInfo, isUserVerified: false });
-            console.log(userInfo);
-
-            navigate('/signUp', { state: userInfo });
+            try {
+                const user = await axios.get(
+                    `http://localhost:3000/api/users?email=${userInfo.email}`
+                );
+                setCurrentUser(user.data);
+                navigate('/');
+            } catch {
+                navigate('/signUp', { state: userInfo });
+            }
         },
         flow: 'implicit',
     });
 
-    return (
-        <>
-            <button onClick={() => handleLogin()}>התחבר/י עם גוגל יגבר</button>
-        </>
-    );
+    return <Button onClick={() => handleLogin()}>התחברו עם גוגל</Button>;
 };
 
 export default GoogleLogin;

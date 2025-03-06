@@ -9,19 +9,19 @@ export const genderRadioRadioLabels = [
 
 export const octoberLocationSelectLabels = [
     {
-        value: 'south parties',
+        value: 'festival',
         label: 'מסיבות הדרום',
     },
     {
-        value: 'Otef settelments',
+        value: 'gazaEnvelopeSettlements',
         label: 'יישובי העוטף',
     },
     {
-        value: 'security forces',
+        value: 'defenceForces',
         label: 'כוחות הבטחון',
     },
     {
-        value: 'medical teams',
+        value: 'medicalStaff',
         label: 'צוותי רפואה',
     },
     {
@@ -34,7 +34,7 @@ export const getUserDefaultValues = (firstName: string, lastName: string, email:
     firstName,
     lastName,
     email,
-    octoberLocation: '',
+    october7thExperience: '',
 });
 
 export const createUserSchema = yup.object().shape({
@@ -43,7 +43,7 @@ export const createUserSchema = yup.object().shape({
     [UserFormKeys.EMAIL]: yup.string().trim().required('חובה להזין אימייל'),
     [UserFormKeys.BIRTH_DATE]: yup.date().required('חובה להזין תאריך לידה'),
     [UserFormKeys.GENDER]: yup.string().trim().required('חובה להזין מגדר'),
-    [UserFormKeys.OCTOBER_LOCATION]: yup
+    [UserFormKeys.OCTOBER_7TH_EXPERIENCE]: yup
         .string()
         .trim()
         .required('חובה להזין איפה היית ב7 באוקטובר'),
