@@ -10,6 +10,7 @@ import Home from "./Pages/Home/Home";
 import Idea from "./Pages/Idea/Idea";
 import { RetreatManagementPage } from "./Pages/Retreats/RetreatManagementPage";
 import { theme } from "./theme";
+import { SuppliersTable } from "./admin/pages/components/addSupplierPopup/addSupplier";
 
 const CLIENT_ID =
   "1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com";
@@ -32,6 +33,7 @@ const App = () => {
               }}
             >
               <Navbar />
+              <SuppliersTable />
               <div style={{ height: "80%" }}>
                 <Routes>
                   <Route path="/retreats" element={<RetreatManagementPage />} />

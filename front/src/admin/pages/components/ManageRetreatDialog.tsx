@@ -3,8 +3,8 @@ import { DialogProps } from "@toolpad/core/useDialogs";
 import moment from "moment";
 import { useRef, useState } from "react";
 import { ImageUploader } from "../../../components/ImageUploader";
-import { DatepickerField } from "../../../Pages/Retreats/DatepickerField";
 import { LocallyCreatedRetreat, Retreat } from "../../types/retreatTypes";
+import { DatepickerField } from "../../../components/DatepickerField";
 
 const ManageRetreatDialog: React.FC<
   DialogProps<
