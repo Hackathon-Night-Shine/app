@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useDialogs } from "@toolpad/core";
-import { Retreat } from "../../../admin/types/retreatTypes";
+import { Retreat } from "../../../../types/retreat";
 import { generateDateWithDayHebrew } from "../../../utils/dateUtils";
 import { ExpandedRetreatDialog } from "./ExpandedRetreatDialog";
 import { ManageRetreatDialog } from "./ManageRetreatDialog";
@@ -62,7 +62,7 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
           {retreat.name}
         </Typography>
         <Typography variant="subtitle1" textAlign="start">
-          {retreat.destination}
+          {retreat.address}
         </Typography>
         <Typography variant="body1" textAlign="start">
           <Typography
