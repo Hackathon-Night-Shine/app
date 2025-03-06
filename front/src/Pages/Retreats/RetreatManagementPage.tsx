@@ -18,7 +18,7 @@ const retreats: Retreat[] = [
     endDate: moment("2023-01-07"),
     avilableParticipantsAmount: 10,
     maximumParticipantsAmount: 20,
-    status: "open",
+    status: "userSigned",
   },
   {
     id: 2,
