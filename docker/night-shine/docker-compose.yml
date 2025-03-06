@@ -18,7 +18,7 @@ services:
   front:
     image: nightshine353/front:latest
     ports:
-      - "8080:8080"
+      - "8080:80"
     depends_on:
       - back
     networks:
