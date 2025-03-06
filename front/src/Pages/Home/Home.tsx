@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, Button } from "@mui/material";
 import photo1 from "../../assets/TZEIRIM_LOGO_1_edited.avif";
 import photo2 from "../../assets/thanks.avif";
 
@@ -7,6 +7,13 @@ const centeredPanel = {
   alignItems: "center",
   width: "100%",
   padding: "10em",
+};
+
+const handleDonationClick = () => {
+  window.open(
+    "https://meshulam.co.il/quick_payment?b=8964cc9885a1459b1481ffb090a67c86",
+    "_blank"
+  );
 };
 
 const Home: React.FC = () => (
@@ -88,7 +95,71 @@ const Home: React.FC = () => (
           'url("https://static.wixstatic.com/media/ded4d3_c92d3d4aed04440fa581ae6a6ffd658f~mv2.jpg/v1/fill/w_1828,h_1333,al_c,q_90,enc_avif,quality_auto/ded4d3_c92d3d4aed04440fa581ae6a6ffd658f~mv2.jpg")',
       }}
     ></Stack>
-
+    <Stack
+      style={{
+        backgroundColor: "#F0923C",
+        color: "white",
+        width: "100%",
+        textAlign: "center",
+        padding: "50px",
+        fontFamily: "sans-serif",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Typography
+        variant="body1"
+        style={{
+          fontSize: "24px",
+          fontWeight: "bold",
+          lineHeight: "1.3",
+          marginBottom: "10px",
+        }}
+      >
+        כדי שנוכל להמשיך אנחנו זקוקים לתרומה שלך
+      </Typography>
+      <Typography
+        variant="h2"
+        style={{
+          fontSize: "50px", 
+          fontWeight: "bold",
+          lineHeight: "1.1",
+          marginBottom: "15px",
+          color: "#5E2E12", 
+        }}
+      >
+        לתמיכה בפרויקט
+      </Typography>
+      <Typography
+        variant="body1"
+        style={{
+          fontSize: "20px", 
+          lineHeight: "1.4",
+          color: "#5E2E12", 
+        }}
+      >
+        כמו בכל מיזם על מנת שנוכל לזוז ולתת <br />
+        אנחנו חייבים מימון כדי לכסות <br />
+        את עלויות המפגשים והאירוח
+      </Typography>
+      <Button
+        variant="contained"
+        style={{
+          backgroundColor: "white",
+          color: "#F0923C", 
+          border: "none",
+          padding: "14px 30px", 
+          fontSize: "22px", 
+          fontWeight: "bold",
+          cursor: "pointer",
+          borderRadius: "7px",
+          marginTop: "25px",
+        }}
+        onClick={handleDonationClick}
+      >
+        לתרומה כספית
+      </Button>
+    </Stack>
     <div
       style={{
         display: "flex",
