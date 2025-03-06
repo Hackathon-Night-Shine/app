@@ -1,6 +1,7 @@
 import { createTheme } from "@mui/material";
 
 export const theme = createTheme({
+  direction: "rtl",
   palette: {
     primary: {
       main: "#f4511e", // Warm orange
@@ -14,15 +15,15 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Rubik", sans-serif',
+    fontFamily: 'Rubik',
   },
   components: {
     MuiDialog: {
       styleOverrides: {
         paper: {
+          maxWidth: "fit-content",
           borderRadius: 16,
           padding: "16px",
-          background: "linear-gradient(135deg, #fff3e0 0%, #fff8e1 100%)",
           boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
           "&::before": {
             content: '""',
@@ -76,15 +77,18 @@ export const theme = createTheme({
           },
           "& .MuiInputLabel-root": {
             color: "#795548",
-            right: 14,
+            right: 27,
             left: "auto",
             transformOrigin: "right",
           },
           marginBottom: "16px",
           "& .MuiFormLabel-root": {
-            right: 14,
+            right: 27,
             left: "auto",
             transformOrigin: "right",
+          },
+          "& .MuiOutlinedInput-notchedOutline": {
+            textAlign: "right",
           },
         },
       },
@@ -109,6 +113,9 @@ export const theme = createTheme({
           "&:hover": {
             backgroundColor: "rgba(121, 85, 72, 0.08)",
           },
+        },
+        startIcon: {
+          marginLeft: ".25em",
         },
       },
     },
