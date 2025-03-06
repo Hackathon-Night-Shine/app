@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
         ))}
       </div>
       <img
-        style={{ width: "auto", height: "80%" }}
+        style={{ width: "10rem", height: "auto", padding: ".5em 0 .5em 0" }}
         src="https://static.wixstatic.com/media/ded4d3_ea81097b2a1d44b2bc7c1299f0d6acaa~mv2.png/v1/crop/x_0,y_28,w_397,h_278/fill/w_239,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo.png"
       ></img>
     </div>
