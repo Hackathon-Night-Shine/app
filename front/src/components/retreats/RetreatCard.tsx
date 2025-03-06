@@ -13,8 +13,8 @@ import { useDialogs } from "@toolpad/core";
 import { Retreat } from "../../admin/types/retreatTypes";
 import { ExpandedRetreatDialog } from "../../Pages/Retreats/components/ExpandedRetreatDialog";
 import { ManageRetreatDialog } from "../../Pages/Retreats/components/ManageRetreatDialog";
+import { RetreatActionButton } from "../../Pages/Retreats/components/RetreatActionButton";
 import { generateDateWithDayHebrew } from "../../utils/dateUtils";
-import { RetreatActionButton } from "./RetreatActionButton";
 
 interface Props {
   retreat: Retreat;
