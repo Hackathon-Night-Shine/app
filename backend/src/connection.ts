@@ -1,15 +1,17 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
+import { createDatabase } from "typeorm-extension";
 import { config } from "dotenv";
 import { User } from "./entities/User";
 import { Request } from "./entities/Request";
 import { Retreat } from "./entities/Retreat";
 import { Review } from "./entities/Review";
 import { UserRetreat } from "./entities/UserRetreat";
-import { Receipt } from "./entities/Receipt";
 import { Supplier } from "./entities/Supplier";
 import { SupplierReceipt } from "./entities/SupplierReceipt";
-import { createDatabase } from "typeorm-extension";
+import { UserFile } from "./entities/UserFile";
+import { UserUserFile } from "./entities/UserUserFile";
+import { Receipt } from "./entities/Receipt";
 
 config();
 
@@ -23,7 +25,8 @@ export const dataSource = new DataSource({
     synchronize: true,
     logging: true,
     schema: 'public',
-    entities: [User, Request, Retreat, Review, UserRetreat, Supplier, Receipt, SupplierReceipt]
+    entities: [User, Request, Retreat, Review, UserRetreat, Supplier, 
+        Receipt, SupplierReceipt, UserFile, UserUserFile]
 });
 
 const initializeDataSource = async () => {
