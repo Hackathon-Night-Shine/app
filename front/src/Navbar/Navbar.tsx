@@ -17,8 +17,7 @@ export const pages: Page[] = [
     { path: '/about-retreat', name: 'על הריטריט' },
     { path: '/about-us', name: 'מי אנחנו' },
     { path: '/retreats', name: 'רשימת רטריטים' },
-    { path: '/contant', name: 'צור קשר' },
-    { path: '/admin-actions', name: 'פעולות מנהל' },
+    { path: '/contant', name: 'צור קשר' }
 ];
 
 const adminOnlyRoutes = ['/admin-actions'];
