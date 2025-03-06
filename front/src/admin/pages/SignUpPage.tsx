@@ -1,14 +1,13 @@
-import React from 'react';
 import { useLocation } from 'react-router-dom';
-import UserSignUp from '../../components/UserSignUp/UserSignUp';
+import UserSignUp from '../../Login/UserSignUp/UserSignUp';
 
-const SignUpPage: React.FC = () => {
+const SignUpPage = () => {
     const location = useLocation();
 
     const userDetails = location.state;
 
     return (
-        <>
+        <div>
             {!!userDetails && !userDetails?.isUserVerified && (
                 <UserSignUp
                     email={userDetails.email}
@@ -16,7 +15,7 @@ const SignUpPage: React.FC = () => {
                     lastName={userDetails.family_name}
                 />
             )}
-        </>
+        </div>
     );
 };
 

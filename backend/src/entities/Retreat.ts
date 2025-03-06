@@ -23,6 +23,6 @@ export class Retreat {
   @Column({ type: "smallint", nullable: true })
   capacity: number;
 
-  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
+  @Column({ type: "timestamp", nullable: true })
   dateTs: Date;
 }

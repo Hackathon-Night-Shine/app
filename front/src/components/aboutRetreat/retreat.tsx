@@ -4,7 +4,7 @@ import FullHeightGallery from './gallery';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 
-const Title = ({ text }: { text: string }) => {
+export const Title = ({ text }: { text: string }) => {
     return (
         <div className="title-container">
             <h4 className="title-text">{text}</h4>

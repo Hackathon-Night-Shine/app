@@ -4,5 +4,5 @@ export enum UserFormKeys {
     EMAIL = 'email',
     BIRTH_DATE = 'birthDate',
     GENDER = 'gender',
-    OCTOBER_LOCATION = 'octoberLocation',
+    OCTOBER_7TH_EXPERIENCE = 'october7thExperience',
 }

@@ -3,7 +3,9 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { DialogsProvider } from "@toolpad/core/useDialogs";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SignUpPage from "./admin/pages/SignUpPage";
 import footer from "./assets/logoUnderPhoto.png";
+import GoogleLogin from "./Login/GoogleLogin/GoogleLogin";
 import Navbar from "./Navbar/Navbar";
 import { AboutUs } from "./Pages/AboutUs";
 import Audience from "./Pages/Audience/Audience";
@@ -14,6 +16,7 @@ import { RetreatManagementPage } from "./Pages/Retreats/RetreatsPage";
 import { theme } from "./theme";
 import { AboutTheRetreat } from "./components/aboutRetreat/retreat";
 import { AfterRetreat } from "./components/aboutRetreat/afterRetreat";
+import CourseFeedbackForm from "./Pages/Survey/CourseFeedbackForm";
 
 const CLIENT_ID =
   "1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com";
@@ -30,8 +33,6 @@ const App = () => {
             <BrowserRouter>
               <div
                 style={{
-                  width: "100%",
-                  height: "100%",
                   display: "flex",
                   flexDirection: "column",
                   backgroundColor: "#f8f6f0",
@@ -41,6 +42,8 @@ const App = () => {
                 <Navbar />
                 <div style={{ height: "80%" }}>
                   <Routes>
+                    <Route path="/auth" element={<GoogleLogin />} />
+                    <Route path="/signUp" element={<SignUpPage />} />
                     <Route
                       path="/retreats"
                       element={<RetreatManagementPage />}
@@ -50,6 +53,11 @@ const App = () => {
                     <Route path="/about-us" element={<AboutUs />} />
                     <Route path="/about-retreat" element={<AboutTheRetreat />} />
                     <Route path="/after-retreat" element={<AfterRetreat />} />
+                    <Route
+                      path="/about-retreat"
+                      element={<AboutTheRetreat />}
+                    />
+                    <Route path="/survey" element={<CourseFeedbackForm />} />
                     <Route path="/idea" element={<Idea />} />
                     <Route path="/" element={<Home />} />
                     <Route path="*" element={<Home />} />

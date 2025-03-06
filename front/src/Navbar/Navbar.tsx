@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { Typography } from "@mui/material";
+import { useAtom } from "jotai";
+import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import defaultProfilePic from "../assets/defaultProfilePic.png";
+import { currentUserAtom } from "../jotai/CurrentUser";
 
 type Page = {
   path: string;
@@ -14,7 +18,6 @@ export const pages: Page[] = [
   { path: "/about-us", name: "מי אנחנו" },
   { path: "/retreats", name: "רשימת רטריטים" },
   { path: "/contact", name: "צור קשר" },
-  { path: "/admin-actions", name: "פעולות מנהל" },
 ];
 
 const adminOnlyRoutes = ["/admin-actions"];
@@ -22,28 +25,28 @@ const adminOnlyRoutes = ["/admin-actions"];
 const shouldHideAdminPage = (
   adminOnlyRoutes: string[],
   path: string,
-  role: string
+  role: string | undefined
 ) => {
+  if (!role) return false;
+
   const isAdminPage = adminOnlyRoutes.includes(path);
 
-  return isAdminPage && role !== "Admin";
+  return isAdminPage && role !== "admin";
 };
 
 const Navbar: React.FC = () => {
-  const [userRole, setUserRole] = useState<"Admin" | "User">("User");
+  const [currentUser, setCurrentUser] = useAtom(currentUserAtom);
 
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    // TODO: get user role
-  }, []);
-
-  useEffect(() => {
-    if (shouldHideAdminPage(adminOnlyRoutes, location.pathname, userRole)) {
+    if (
+      shouldHideAdminPage(adminOnlyRoutes, location.pathname, currentUser?.role)
+    ) {
       navigate("/");
     }
-  }, [location.pathname, userRole]);
+  }, [location.pathname, currentUser]);
 
   return (
     <div
@@ -56,6 +59,54 @@ const Navbar: React.FC = () => {
         backgroundColor: "white",
       }}
     >
+      <>
+        {!!currentUser ? (
+          <div style={{ display: "flex", gap: "8px" }}>
+            <img
+              src={currentUser?.img ?? defaultProfilePic}
+              style={{ width: "40px", height: "40px", borderRadius: "24px" }}
+            />
+            <div>
+              <Typography style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
+                שלום {currentUser.firstName}
+              </Typography>
+              <div style={{ display: "flex", gap: "4px" }}>
+                <Typography
+                  onClick={() => {
+                    navigate("/personal-area");
+                  }}
+                >
+                  לאיזור האישי |
+                </Typography>
+                <Typography
+                  onClick={() => {
+                    setCurrentUser(undefined);
+                  }}
+                >
+                  להתנתקות
+                </Typography>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <Link
+            style={{
+              display: "flex",
+              gap: "8px",
+              alignItems: "center",
+              textDecoration: "none",
+              color: "black",
+            }}
+            to={"/auth"}
+          >
+            <img
+              src={defaultProfilePic}
+              style={{ width: "40px", height: "40px", borderRadius: "24px" }}
+            />
+            <Typography>התחברות</Typography>
+          </Link>
+        )}
+      </>
       <div
         style={{
           display: "flex",
@@ -66,7 +117,11 @@ const Navbar: React.FC = () => {
       >
         {pages.map((page) => (
           <React.Fragment key={page.path}>
-            {shouldHideAdminPage(adminOnlyRoutes, page.path, userRole) ? (
+            {shouldHideAdminPage(
+              adminOnlyRoutes,
+              page.path,
+              currentUser?.role
+            ) ? (
               <></>
             ) : (
               <Link

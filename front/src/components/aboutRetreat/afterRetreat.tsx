@@ -1,16 +1,12 @@
-import { Card, CardContent, CardActions, Button, Typography, Container, Grid } from "@mui/material";
+import { Button, Typography, Container } from "@mui/material";
 import './index.css';
 import photo from '../../assets/woman.avif';
-
-const therapists = [
-    { name: "Jane Doe", specialty: "Hakomi Therapy", location: "Tel Aviv", contact: "jane@example.com" },
-    { name: "John Smith", specialty: "EMDR Therapy", location: "Jerusalem", contact: "john@example.com" },
-];
+import { Title } from "./retreat";
 
 export function AfterRetreat() {
     return (
         <Container maxWidth="md" sx={{ py: 4 }}>
-            <Typography variant="h3" gutterBottom>אחרי הריטריט</Typography>
+            <Title text='אחרי הריטריט' />
             <Typography paragraph>מקווים שהדרך חזרה והנחיתה הייתה רכה וטובה
 
                 רוצים לוודא שאתם ממשיכים את המסע  בידיים טובות, שנכונות לכם.
@@ -28,14 +24,7 @@ export function AfterRetreat() {
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScYbnmleRTAqfP09hfIPrud1O0KMpkd9TeDatH7SGXGBLbXWw/viewform" target="_black">
                 <Button >למילוי משוב לחץ כאן</Button>
             </a>
-            <div className="custom-line"></div>
-
-            <Typography variant="h5" gutterBottom>הרפיית ג׳קובסון</Typography>
-            <video src="https://youtu.be/4h_vaLjQSE0" width={600}
-                height={400}
-                controls
-                autoPlay
-            ></video>
+        
             <div className="custom-line"></div>
 
             <Typography paragraph>EMDR Israel</Typography>
