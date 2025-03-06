@@ -6,13 +6,12 @@ import { UserRole, UserType } from "../types";
 // Create the router instance
 const router = Router();
 
-// Get all users
 router.get("/users", async (req, res) => {
   try {
     const userRepository = dataSource.getRepository(User);
-    //Todo: add join to table tik metupal
     const users = await userRepository.find({
-      where: { role: UserRole.ADMIN },
+      where: { role: UserRole.CLIENT },
+      relations: ["tikMetupal"],
     });
     res.json(users);
   } catch (error) {
@@ -37,7 +36,7 @@ router.get("/users/:email", async (req, res) => {
   }
 });
 
-router.post("/api/users", async (req, res) => {
+router.post("/users", async (req, res) => {
   const user = req.body as UserType;
   if (!user) {
     return res.status(400).json({ error: "user wasn't provided" });
