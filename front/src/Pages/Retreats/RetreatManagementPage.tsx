@@ -80,7 +80,7 @@ const RetreatManagementPage = () => {
   }, [locallyCreatedRetreat]);
 
   return (
-    <Card style={{ display: "flex", flexDirection: "column" }}>
+    <Card style={{ display: "flex", flexDirection: "column", backgroundColor: '#F9F6F0' }}>
       {isAdmin && (
         <Button variant="contained" onClick={handleCreateRetreatClick}>
           הוסף ריטריט
