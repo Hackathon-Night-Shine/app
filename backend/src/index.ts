@@ -4,6 +4,7 @@ import cors from "cors";
 import { config } from "dotenv";
 import { AppDataSource } from "./connection";
 import userRouter from "./routes/userRouter";
+import requestRouter from "./routes/requestRouter";
 import retreatsRouter from "./routes/retreatsRouter";
 
 // Load environment variables
@@ -11,7 +12,7 @@ config();
 
 // Create Express app
 export const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 // Middleware
 app.use(cors());
@@ -19,6 +20,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api", userRouter);
+app.use("/api", requestRouter);
 app.use("/api", retreatsRouter);
 
 // Default route
