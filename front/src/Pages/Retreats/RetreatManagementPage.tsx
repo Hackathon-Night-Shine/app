@@ -80,20 +80,18 @@ const RetreatManagementPage = () => {
   }, [locallyCreatedRetreat]);
 
   return (
-    <div style={{ backgroundColor: "F9F6F0"}}>
-      <Card style={{ display: "flex", flexDirection: "column" }}>
-        {isAdmin && (
-          <Button variant="contained" onClick={handleCreateRetreatClick}>
-            הוסף ריטריט
-          </Button>
-        )}
-        <RetreatManagementList
-          retreats={retreatsArr}
-          pendingRetreat={locallyCreatedRetreat}
-          editable={isAdmin}
-        />
-      </Card>
-    </div>
+    <Card style={{ display: "flex", flexDirection: "column" }}>
+      {isAdmin && (
+        <Button variant="contained" onClick={handleCreateRetreatClick}>
+          הוסף ריטריט
+        </Button>
+      )}
+      <RetreatManagementList
+        retreats={retreatsArr}
+        pendingRetreat={locallyCreatedRetreat}
+        editable={isAdmin}
+      />
+    </Card>
   );
 };
 
