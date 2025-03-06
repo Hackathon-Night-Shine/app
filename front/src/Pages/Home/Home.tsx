@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Grid2, Stack, Typography } from "@mui/material";
 import photo1 from "../../assets/TZEIRIM_LOGO_1_edited.avif";
 import photo2 from "../../assets/thanks.avif";
 
@@ -6,8 +6,17 @@ const centeredPanel = {
   justifyContent: "center",
   alignItems: "center",
   width: "100%",
-  padding: "10em",
+  padding: "8em",
 };
+
+const participantsReviews = [
+  "הייתי בתחתית וחסר כל תקווה וחזר לי הצבע לחיים",
+  "הרגשתי לפני הריטריט כאילו החיים נצבעו בשחור והראיתם לי שאפשר להחזיר את הצבע",
+  "חזרתי הביתה מואר, חשבתי שאני לא אצא מהלופ הזה של הכעס העצמי, ופשוט בזכות נוכחות של כל אחד ואחת מכם, הצלחתי לחזור לעצמי ולהתייחס פנימה והחוצה בחמלה ואהבה.\nוהמשפט הזה מקבל בשבילי משמעות ענקית פתאום ״לילה כיום יאיר״\nשנשמור על האור שלנו דולק תמיד",
+  "עברתי מסע של עיבוד ולמדתי כלים שכבר היום השתמשתי בהם והרגשתי שהם עוזרים לי בזמן אמת",
+  "כבר מרגיש אחר, וניכר גם דרך ההשתקפות מהסביבה.\nמודה על כולכם",
+  "היה שווה להישאר בחיים כדי להגיע לרגע הזה איתכם שאנחנו חולקים ומשתפים באהבה הטהורה שלנו. אמן שתדעו אהבה בכל דרך שתבחרו להמשיך ללכת בה ותדעו לחלוק את אהבתכם עם העולם. מאחל לנו שנדע להעביר את האהבה הזאת הלאה ומתוך המעגל הקטן שלנו נוכל ליצור עוד ועוד מעגלים של אהבה ואולי בסוף כל העולם יהיה מעגל אהבה אחד גדול",
+];
 
 const Home: React.FC = () => (
   <div
@@ -23,7 +32,8 @@ const Home: React.FC = () => (
         ...centeredPanel,
         background:
           'url("https://static.wixstatic.com/media/1ed143_57f11dec29b14e6fbc147fce304e41f3~mv2.jpg/v1/fill/w_1895,h_819,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1ed143_57f11dec29b14e6fbc147fce304e41f3~mv2.jpg")',
-        backgroundSize: "contain",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <img
@@ -81,13 +91,37 @@ const Home: React.FC = () => (
         paddingBlock: "3%",
         width: "1263px",
         height: "921px",
-        objectFit: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center",
         background:
           'url("https://static.wixstatic.com/media/ded4d3_c92d3d4aed04440fa581ae6a6ffd658f~mv2.jpg/v1/fill/w_1828,h_1333,al_c,q_90,enc_avif,quality_auto/ded4d3_c92d3d4aed04440fa581ae6a6ffd658f~mv2.jpg")',
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        boxShadow: "inset 0 0 0 1000px rgba(94, 46, 18,.8)",
       }}
-    ></Stack>
+    >
+      <Typography
+        variant="h3"
+        style={{ fontWeight: "800", color: "rgb(243, 176, 115)" }}
+      >
+        משתתפים מספרים
+      </Typography>
+      <Grid2 container spacing={1} width={"70%"}>
+        {participantsReviews.map((review) => (
+          <Grid2 size={6} alignContent="center">
+            <img
+              width={53}
+              height={31}
+              src="https://static.wixstatic.com/media/ded4d3_32ef1a394e2244109d63df3adf6c29a9~mv2.png/v1/fill/w_80,h_47,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/illustration_2x.png"
+            />
+            <Typography
+              variant="subtitle1"
+              style={{ color: "white", fontWeight: "bold" }}
+            >
+              "{review}"
+            </Typography>
+          </Grid2>
+        ))}
+      </Grid2>
+    </Stack>
 
     <div
       style={{

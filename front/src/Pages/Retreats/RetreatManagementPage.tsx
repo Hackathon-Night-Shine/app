@@ -11,9 +11,10 @@ const retreats: Retreat[] = [
     id: 1,
     imageSrc:
       "https://rukminim3.flixcart.com/image/850/1000/kpcy5jk0/poster/h/c/w/large-village-poster-scenery-scenrym-68-original-imag3m8vrkdztzva.jpeg?q=20&crop=false",
-    name: "Mountain Retreat",
-    description: "A peaceful retreat in the mountains.",
-    destination: "Mountain",
+    name: "ריטריט הרים",
+    description:
+      "ריטריט שליו בהרים, מוקף בנופים עוצרי נשימה ואוויר צח. המשתתפים ייהנו מהליכות בטבע, סדנאות יוגה ומדיטציה, וארוחות בריאות ומזינות. זהו המקום המושלם להתרחק מהשגרה ולהתחבר לעצמך מחדש.",
+    destination: "הרים",
     startDate: moment("2023-01-01"),
     endDate: moment("2023-01-07"),
     avilableParticipantsAmount: 10,
@@ -24,9 +25,10 @@ const retreats: Retreat[] = [
     id: 2,
     imageSrc:
       "https://rukminim3.flixcart.com/image/850/1000/kpcy5jk0/poster/h/c/w/large-village-poster-scenery-scenrym-68-original-imag3m8vrkdztzva.jpeg?q=20&crop=false",
-    name: "Beach Retreat",
-    description: "A relaxing retreat by the beach.",
-    destination: "Mountain",
+    name: "ריטריט חוף",
+    description:
+      "ריטריט מרגיע על חוף הים, עם גישה ישירה לחול ולמים. המשתתפים יוכלו להשתתף בפעילויות כמו שחייה, ספורט ימי, וסדנאות יצירה. בנוסף, יהיו מפגשים קבוצתיים לשיתוף חוויות והעצמה אישית. זהו המקום המושלם להירגע ולהתמלא באנרגיות חדשות.",
+    destination: "חוף",
     startDate: moment("2023-01-01"),
     endDate: moment("2023-01-07"),
     avilableParticipantsAmount: 10,
