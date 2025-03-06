@@ -60,6 +60,6 @@ jobs:
             cd ./app/docker/night-shine
             sudo git config --global --add safe.directory /home/***/app
             sudo git pull origin main         # Pull the latest changes from the `main` branch
-            sudo docker compose down          # Stop and remove any existing containers
-            sudo docker compose up -d --build # Rebuild and start the containers
+            sudo docker-compose down          # Stop and remove any existing containers
+            sudo docker-compose up -d --build # Rebuild and start the containers
           EOF
