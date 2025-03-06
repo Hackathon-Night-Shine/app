@@ -31,7 +31,7 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
   };
 
   const handleEditRetreat = async () => {
-    const editedRetreat = await dialogs.open(ManageRetreatDialog, retreat);
+    await dialogs.open(ManageRetreatDialog, retreat);
   };
 
   return (
@@ -110,14 +110,14 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
         <Typography
           variant="body1"
           fontWeight="bold"
-          style={{ marginTop: '10px'}}
+          style={{ marginTop: "10px" }}
         >{`${retreat.avilableParticipantsAmount}/${retreat.maximumParticipantsAmount} מקומות נותרו`}</Typography>
       </CardContent>
       <CardActions>
         {!editable && <RetreatActionButton status={retreat.status} />}
         {editable && (
           <Button
-            sx={{ borderColor: '#f8b377'}}
+            sx={{ borderColor: "#f8b377" }}
             variant="outlined"
             startIcon={<EditIcon />}
             fullWidth

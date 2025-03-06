@@ -31,7 +31,7 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
   };
 
   const handleEditRetreat = async () => {
-    const editedRetreat = await dialogs.open(ManageRetreatDialog, retreat);
+    await dialogs.open(ManageRetreatDialog, retreat);
   };
 
   return (

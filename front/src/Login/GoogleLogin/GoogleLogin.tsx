@@ -9,7 +9,7 @@ import { currentUserAtom } from "../../jotai/CurrentUser";
 const GoogleLogin = () => {
   const navigate = useNavigate();
   const setCurrentUser = useSetAtom(currentUserAtom);
-  const [_userDetails, setUserDetails] = useState<any | undefined>(undefined);
+  const [_userDetails, _] = useState<any | undefined>(undefined);
 
   const getUserInfo = async (access_token: string) => {
     return await axios

@@ -1,5 +1,5 @@
-import React, { useState, FormEvent } from 'react';
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
+import React, { useState } from "react";
 
 // Interface for form data
 interface ContactFormData {
@@ -10,22 +10,21 @@ interface ContactFormData {
   description: string;
 }
 
-
 const ContactForm: React.FC = () => {
-   const initialState: ContactFormData = {
-       subject: '',
-       name: '',
-       email: '',
-       phone: '',
-       description: ''
-    };
+  const initialState: ContactFormData = {
+    subject: "",
+    name: "",
+    email: "",
+    phone: "",
+    description: "",
+  };
   // State to manage form data
   const [formData, setFormData] = useState<ContactFormData>({
-    subject: '',
-    name: '',
-    email: '',
-    phone: '',
-    description: ''
+    subject: "",
+    name: "",
+    email: "",
+    phone: "",
+    description: "",
   });
 
   const clearForm = () => {
@@ -33,15 +32,17 @@ const ContactForm: React.FC = () => {
   };
 
   // Handle input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const templateParams = {
@@ -54,19 +55,19 @@ const ContactForm: React.FC = () => {
 
     emailjs
       .send(
-        'service_yi6yrws', // Replace with your Service ID
-        'template_phxqs63', // Replace with your Template ID
+        "service_yi6yrws", // Replace with your Service ID
+        "template_phxqs63", // Replace with your Template ID
         templateParams,
-        'WfB5L62s0B6WFg2el'  // Replace with your Public Key
+        "WfB5L62s0B6WFg2el" // Replace with your Public Key
       )
       .then(
-        (response) => {
-          alert('Message sent!');
+        () => {
+          alert("Message sent!");
           clearForm();
         },
         (error) => {
-          console.error('Failed to send email:', error);
-          alert('Something went wrong. Try again.');
+          console.error("Failed to send email:", error);
+          alert("Something went wrong. Try again.");
         }
       );
   };
@@ -153,46 +154,45 @@ const ContactForm: React.FC = () => {
 
 // Basic inline styles (you can move these to a separate CSS file)
 const containerStyle: React.CSSProperties = {
-  maxWidth: '500px',
-  margin: '0 auto',
-  padding: '20px',
+  maxWidth: "500px",
+  margin: "0 auto",
+  padding: "20px",
 };
 
 const formStyle: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '15px',
+  display: "flex",
+  flexDirection: "column",
+  gap: "15px",
 };
 
 const fieldStyle: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
+  display: "flex",
+  flexDirection: "column",
 };
 
 const inputStyle: React.CSSProperties = {
-  padding: '8px',
-  marginTop: '5px',
-  border: '1px solid #ccc',
-  borderRadius: '4px',
+  padding: "8px",
+  marginTop: "5px",
+  border: "1px solid #ccc",
+  borderRadius: "4px",
 };
 
 const textareaStyle: React.CSSProperties = {
-  padding: '8px',
-  marginTop: '5px',
-  border: '1px solid #ccc',
-  borderRadius: '4px',
-  resize: 'vertical',
+  padding: "8px",
+  marginTop: "5px",
+  border: "1px solid #ccc",
+  borderRadius: "4px",
+  resize: "vertical",
 };
 
 const buttonStyle: React.CSSProperties = {
-  padding: '10px',
-  backgroundColor: '#007bff',
-  color: 'white',
-  border: 'none',
-  borderRadius: '4px',
-  cursor: 'pointer',
-  marginTop: '10px',
+  padding: "10px",
+  backgroundColor: "#007bff",
+  color: "white",
+  border: "none",
+  borderRadius: "4px",
+  cursor: "pointer",
+  marginTop: "10px",
 };
 
 export default ContactForm;
-

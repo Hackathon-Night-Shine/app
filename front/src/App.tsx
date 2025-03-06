@@ -14,7 +14,6 @@ import ContactForm from "./Pages/Contact";
 import Home from "./Pages/Home/Home";
 import Idea from "./Pages/Idea/Idea";
 import { RetreatManagementPage } from "./Pages/Retreats/RetreatsPage";
-import CourseFeedbackForm from "./Pages/Survey/CourseFeedbackForm";
 import { theme } from "./theme";
 
 const CLIENT_ID =
@@ -54,7 +53,7 @@ const App = () => {
                       path="/about-retreat"
                       element={<AboutTheRetreat />}
                     />
-                    <Route path="/survey" element={<CourseFeedbackForm />} />
+                    {/* <Route path="/survey" element={<CourseFeedbackForm />} /> */}
                     <Route path="/idea" element={<Idea />} />
                     <Route path="/" element={<Home />} />
                     <Route path="*" element={<Home />} />
