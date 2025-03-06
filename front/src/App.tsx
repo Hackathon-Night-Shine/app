@@ -8,7 +8,7 @@ import { AboutUs } from "./Pages/AboutUs";
 import Audience from "./Pages/Audience/Audience";
 import Home from "./Pages/Home/Home";
 import Idea from "./Pages/Idea/Idea";
-import ContactForm from './Pages/Contact';
+import ContactForm from "./Pages/Contact";
 import { RetreatManagementPage } from "./Pages/Retreats/RetreatManagementPage";
 import { theme } from "./theme";
 import { AboutTheRetreat } from "./components/aboutRetreat/retreat";
