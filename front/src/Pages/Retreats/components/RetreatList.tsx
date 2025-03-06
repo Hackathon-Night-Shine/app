@@ -30,6 +30,7 @@ const RetreatManagementList: React.FC<Props> = ({
       container
       rowSpacing={12}
       columnSpacing={6}
+      columns={{ xs: 3, sm: 6, md: 9, lg: 12 }}
       padding={2}
       sx={{ marginTop: "5em" }}
     >

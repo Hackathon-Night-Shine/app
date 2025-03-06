@@ -7,26 +7,34 @@ interface Props {
 }
 
 const RetreatStatusText: Record<RetreatStatus, string> = {
-  open: "להרשמה",
-  userSigned: "לביטול",
   closed: "ההרשמה סגורה",
   full: "מלא",
+  open: "להרשמה",
+  processing: "בתהליך",
+  userSigned: "לביטול"
 };
 
 const retreatStatusColor: Partial<Record<RetreatStatus, string>> = {
-  userSigned: "#F5B074",
+  closed: "#6F7279",
+  full: "#6F7279",
+  open: "#2364D2",
+  processing: "#F5B074",
+  userSigned: "#8B0000"
 };
 
 const additionalProps: Partial<Record<RetreatStatus, ButtonProps>> = {
   closed: { disabled: true },
   full: { disabled: true },
+  processing: { disabled: true },
 };
 
 const RetreatActionButton: React.FC<Props> = memo(({ status }) => {
   return (
     <Button
       variant="contained"
-      sx={{ backgroundColor: retreatStatusColor[status] }}
+      sx={{ backgroundColor: retreatStatusColor[status], 
+            '&.Mui-disabled': { backgroundColor: retreatStatusColor[status], color: 'white' }
+          }}
       disableElevation
       fullWidth
       {...additionalProps[status]}
