@@ -19,7 +19,7 @@ router.get("/users", async (req, res) => {
   }
 });
 
-router.get("/users/:email", async (req, res) => {
+router.get("/users/byEmail/:email", async (req, res) => {
   const email = req.params.email;
 
   try {
@@ -27,12 +27,29 @@ router.get("/users/:email", async (req, res) => {
     const user = await userRepository.findOne({ where: { email } });
 
     if (!user) {
-      res.status(404).json({ message: "User not found" });
+      res.status(404).json({ message: `User with email ${email} not found` });
       return;
     }
     res.json(user);
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch user", error });
+    res.status(500).json({ message: "Failed to fetch user by email", error });
+  }
+});
+
+router.get("/users/byId/:userId", async (req, res) => {
+  const userId = parseInt(req.params.userId);
+
+  try {
+    const userRepository = dataSource.getRepository(User);
+    const user = await userRepository.findOne({ where: { id: userId } });
+
+    if (!user) {
+      res.status(404).json({ message: `User with id ${userId} not found` });
+      return;
+    }
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch user by id", error });
   }
 });
 
