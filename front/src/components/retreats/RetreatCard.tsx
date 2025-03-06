@@ -1,40 +1,49 @@
 import EditIcon from "@mui/icons-material/Edit";
 import {
+  Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
   Divider,
-  IconButton,
   Stack,
   Typography,
 } from "@mui/material";
+import { useDialogs } from "@toolpad/core";
 import { Retreat } from "../../admin/types/retreatTypes";
-import { RetreatActionButton } from "./RetreatActionButton";
+import { ExpandedRetreatDialog } from "../../Pages/Retreats/components/ExpandedRetreatDialog";
+import { ManageRetreatDialog } from "../../Pages/Retreats/components/ManageRetreatDialog";
+import { RetreatActionButton } from "../../Pages/Retreats/components/RetreatActionButton";
+import { generateDateWithDayHebrew } from "../../utils/dateUtils";
 
 interface Props {
   retreat: Retreat;
   editable?: boolean;
 }
 
-const daysOfWeekHebrew = [
-  "ראשון",
-  "שני",
-  "שלישי",
-  "רביעי",
-  "חמישי",
-  "שישי",
-  "שבת",
-];
-const generateDateWithDayHebrew = (date: Date) => {
-  return `יום ${daysOfWeekHebrew[date.getDay()]} ${date.toLocaleDateString(
-    "en-GB"
-  )}`;
-};
+const EXCLUDED_EXPANSIONS_CLASSES = "MuiCardActions-root";
 
 const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
+  const dialogs = useDialogs();
+
+  const handleExpandRetreat = async () => {
+    await dialogs.open(ExpandedRetreatDialog, retreat);
+  };
+
+  const handleEditRetreat = async () => {
+    const editedRetreat = await dialogs.open(ManageRetreatDialog, retreat);
+  };
+
   return (
-    <Card sx={{ overflow: "visible", height: "100%" }}>
+    <Card
+      sx={{ overflow: "visible", height: "100%" }}
+      onClick={(e: { target: { closest: (arg0: string) => any } }) => {
+        if (!editable && !e.target.closest(EXCLUDED_EXPANSIONS_CLASSES)) {
+          handleExpandRetreat();
+        }
+      }}
+      zIndex={0}
+    >
       <CardMedia
         component="img"
         height="160"
@@ -104,14 +113,18 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
         >{`${retreat.avilableParticipantsAmount}/${retreat.maximumParticipantsAmount} מקומות נותרו`}</Typography>
       </CardContent>
       <CardActions>
-        <Stack direction="row" flexGrow={1}>
-          <RetreatActionButton status={retreat.status} />
-          {editable && (
-            <IconButton aria-label="edit">
-              <EditIcon />
-            </IconButton>
-          )}
-        </Stack>
+        {!editable && <RetreatActionButton status={retreat.status} />}
+        {editable && (
+          <Button
+            variant="outlined"
+            startIcon={<EditIcon />}
+            fullWidth
+            disableElevation
+            onClick={handleEditRetreat}
+          >
+            עריכה
+          </Button>
+        )}
       </CardActions>
     </Card>
   );
