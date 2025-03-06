@@ -10,10 +10,10 @@ import {
   Typography,
 } from "@mui/material";
 import { useDialogs } from "@toolpad/core";
-import { Retreat } from "../../../admin/types/retreatTypes";
-import { generateDateWithDayHebrew } from "../../../utils/dateUtils";
-import { ExpandedRetreatDialog } from "./ExpandedRetreatDialog";
-import { ManageRetreatDialog } from "./ManageRetreatDialog";
+import { Retreat } from "../../admin/types/retreatTypes";
+import { ExpandedRetreatDialog } from "../../Pages/Retreats/components/ExpandedRetreatDialog";
+import { ManageRetreatDialog } from "../../Pages/Retreats/components/ManageRetreatDialog";
+import { generateDateWithDayHebrew } from "../../utils/dateUtils";
 import { RetreatActionButton } from "./RetreatActionButton";
 
 interface Props {
@@ -21,7 +21,7 @@ interface Props {
   editable?: boolean;
 }
 
-const EXCLUDED_EXPANSIONS_CLASSES = ".MuiButtonBase-root";
+const EXCLUDED_EXPANSIONS_CLASSES = "MuiCardActions-root";
 
 const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
   const dialogs = useDialogs();
@@ -130,4 +130,4 @@ const RetreatCard: React.FC<Props> = ({ retreat, editable }) => {
   );
 };
 
-export { EXCLUDED_EXPANSIONS_CLASSES, RetreatCard };
+export { RetreatCard };

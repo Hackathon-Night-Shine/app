@@ -2,8 +2,8 @@ import { Button, Card } from "@mui/material";
 import { useDialogs } from "@toolpad/core/useDialogs";
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { ManageRetreatDialog } from "../../admin/pages/components/ManageRetreatDialog";
 import { LocallyCreatedRetreat, Retreat } from "../../admin/types/retreatTypes";
+import { ManageRetreatDialog } from "./components/ManageRetreatDialog";
 import { RetreatManagementList } from "./components/RetreatList";
 
 const retreats: Retreat[] = [
