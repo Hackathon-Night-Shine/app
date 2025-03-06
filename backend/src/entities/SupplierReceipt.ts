@@ -16,5 +16,5 @@ export class SupplierReceipt {
 
     @ManyToOne(() => Receipt, { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'receiptId' })
-    retreat: Receipt;
+    receipt: Receipt;
 }
