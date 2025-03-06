@@ -11,7 +11,6 @@ router.get("/users", async (req, res) => {
     const userRepository = dataSource.getRepository(User);
     const users = await userRepository.find({
       where: { role: UserRole.CLIENT },
-      relations: ["tikMetupal"],
     });
     res.json(users);
   } catch (error) {

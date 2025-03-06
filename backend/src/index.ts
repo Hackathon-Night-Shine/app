@@ -6,6 +6,7 @@ import { AppDataSource } from "./connection";
 import userRouter from "./routes/userRouter";
 import requestRouter from "./routes/requestRouter";
 import retreatsRouter from "./routes/retreatsRouter";
+import userFileRouter from "./routes/userFileRouter";
 
 // Load environment variables
 config();
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use("/api", userRouter);
 app.use("/api", requestRouter);
 app.use("/api", retreatsRouter);
+app.use("/api", userFileRouter);
 
 // Default route
 app.get("/", (req, res) => {
