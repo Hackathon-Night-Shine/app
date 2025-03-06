@@ -1,8 +1,8 @@
 import { Dialog, DialogContent, Stack, Typography } from "@mui/material";
 import { DialogProps } from "@toolpad/core/useDialogs";
-import { generateDateWithDayHebrew } from "../../../utils/dateUtils";
-import { RetreatActionButton } from "./RetreatActionButton";
-import { Retreat } from "../../../../types/retreatTypes";
+import { Retreat } from "../../../types/retreatTypes";
+import { RetreatActionButton } from "../../Pages/Retreats/RetreatActionButton";
+import { generateDateWithDayHebrew } from "../../utils/dateUtils";
 
 const ExpandedRetreatDialog: React.FC<DialogProps<Retreat>> = ({
   open,

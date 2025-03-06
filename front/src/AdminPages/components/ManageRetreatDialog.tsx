@@ -2,11 +2,9 @@ import { Button, Dialog, DialogContent, Grid2, TextField } from "@mui/material";
 import { DialogProps } from "@toolpad/core/useDialogs";
 import moment from "moment";
 import { useRef, useState } from "react";
-
 import { DatepickerField } from "../../../components/DatepickerField";
 import { ImageUploader } from "../../../components/ImageUploader";
 import { LocallyCreatedRetreat, Retreat } from "../../../../types/retreatTypes";
-
 const ManageRetreatDialog: React.FC<
   DialogProps<
     Retreat | LocallyCreatedRetreat,
