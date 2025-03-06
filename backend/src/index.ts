@@ -4,6 +4,7 @@ import cors from "cors";
 import { config } from "dotenv";
 import { AppDataSource } from "./connection";
 import userRoutes from "./routes/userRoutes";
+import requestRouter from "./routes/requestRouter"
 
 // Load environment variables
 config();
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api", userRoutes);
+app.use("/api", requestRouter)
 
 // Default route
 app.get("/", (req, res) => {
