@@ -5,7 +5,6 @@ import { DialogsProvider } from "@toolpad/core/useDialogs";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUpPage from "./admin/pages/SignUpPage";
 import footer from "./assets/logoUnderPhoto.png";
-import { AboutTheRetreat } from "./components/aboutRetreat/retreat";
 import GoogleLogin from "./Login/GoogleLogin/GoogleLogin";
 import Navbar from "./Navbar/Navbar";
 import { AboutUs } from "./Pages/AboutUs";
@@ -14,8 +13,10 @@ import ContactForm from "./Pages/Contact";
 import Home from "./Pages/Home/Home";
 import Idea from "./Pages/Idea/Idea";
 import { RetreatManagementPage } from "./Pages/Retreats/RetreatsPage";
-import CourseFeedbackForm from "./Pages/Survey/CourseFeedbackForm";
 import { theme } from "./theme";
+import { AboutTheRetreat } from "./components/aboutRetreat/retreat";
+import { AfterRetreat } from "./components/aboutRetreat/afterRetreat";
+import CourseFeedbackForm from "./Pages/Survey/CourseFeedbackForm";
 
 const CLIENT_ID =
   "1026926080882-g4hhc1f7kek176kolh4r0bi1v995aq23.apps.googleusercontent.com";
@@ -50,6 +51,8 @@ const App = () => {
                     <Route path="/audience" element={<Audience />} />
                     <Route path="/contact" element={<ContactForm />} />
                     <Route path="/about-us" element={<AboutUs />} />
+                    <Route path="/about-retreat" element={<AboutTheRetreat />} />
+                    <Route path="/after-retreat" element={<AfterRetreat />} />
                     <Route
                       path="/about-retreat"
                       element={<AboutTheRetreat />}

@@ -1,8 +1,10 @@
 
 import './index.css'
 import FullHeightGallery from './gallery';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
 
-const Title = ({ text }: { text: string }) => {
+export const Title = ({ text }: { text: string }) => {
     return (
         <div className="title-container">
             <h4 className="title-text">{text}</h4>
@@ -15,11 +17,9 @@ function OrangeTitle({ text }: { text: string }) {
 }
 
 export const AboutTheRetreat = () => {
-
+    const navigate = useNavigate();
     return (
-
         <div>
-
             <div style={{ width: '60vw', margin: '0 auto', textAlign: 'center' }}>
                 <div>
                     <OrangeTitle text="איך עושים את זה" />
@@ -39,7 +39,6 @@ export const AboutTheRetreat = () => {
                 <div>
                     <OrangeTitle text="למי זה מתאים?" />
                 </div>
-
                 <div style={{ fontSize: '18px' }}>
                     <p>
                         הריטריט נותן מענה לצעירים אשר נפגעו במסיבות הדרום, צעירי העוטף, וצעירי משפחות החטופים. לאלו שמרגישים צורך להיות יחד במקום מוגן, עם עיניים מלוות של טובי המטפלים ואנשי המקצוע ולעבור תהליך אישי וקבוצתי מרפא.
@@ -57,15 +56,8 @@ export const AboutTheRetreat = () => {
                 </div>
 
                 <div className="custom-line"></div>
-
-                <div>
-                    <OrangeTitle text="החזרה הביתה" />
-                </div>
-
-                <div>
-                    <Title text="לבוגרי הריטריט" />
-                </div>
-
+                <OrangeTitle text="החזרה הביתה" />
+                <Title text="לבוגרי הריטריט" />
 
                 <div style={{ fontSize: '17px' }}>
                     <span>
@@ -76,20 +68,12 @@ export const AboutTheRetreat = () => {
                 <div>&nbsp;</div>
 
                 <div style={{ fontSize: '20px' }}>
-                    <span>
-                        לדף המידע להמשך אחרי הריטריט
-                    </span>
+                    <Button onClick={() => navigate('/after-retreat')} variant="contained" color="primary">לדף המידע להמשך אחרי הריטריט </Button>
                 </div>
 
                 <div className="custom-line"></div>
-
-                <div>
-                    <Title text="הצצה לאוירת הריטריט" />
-                </div>
-
+                <Title text="הצצה לאוירת הריטריט" />
             </div>
-
-
             <div>
                 <FullHeightGallery />
             </div>
